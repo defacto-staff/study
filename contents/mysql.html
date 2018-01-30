@@ -1,0 +1,141 @@
+<h1 id="dialogs">データベースとの連携</h1>
+<hr>
+<p>ここでは、PHPからデータベース（MySQL）に接続し、データの取得や変更を行う方法を説明します。基幹システム（旧）では「ExecuteSQL_v3」という関数が用意されています。この関数を使って、データベースにクエリを送信することができます。</p>
+<p>まずは、以下のコードを見てみましょう。</p>
+<pre class="prettyprint"><code class="prettyprint">$Sql = "SELECT * FROM t001_shouhin WHERE ShouhinID=1";
+$Rs0 = ExecuteSQL_v3($Sql, 'kikan1', __FILE__, __LINE__);
+$ArrItem0 = mysql_fetch_assoc($Rs0);</code></pre>
+
+<p>
+  <ol>
+    <li>送信するクエリを文字列として変数に代入する</li>
+    <li>クエリが代入された変数を「ExecuteSQL_v3()」関数の第1引数にセットする</li>
+    <li>3</li>
+  </ol>
+</p>
+
+<p>こういった流れでデータベースのデータを取得することができます。以下で詳しく見ていきましょう。</p>
+
+<h3>クエリ文字列を作成する</h3>
+<pre class="prettyprint"><code class="prettyprint">$Sql = "SELECT * FROM t001_shouhin WHERE ShouhinID=1";</code></pre>
+<p>まずは、SQLを作成し、それを文字列として変数に代入します。上記の例では1行に直していますが、</p>
+<pre class="prettyprint"><code class="prettyprint">$Sql = "
+    SELECT
+        ShouhinID
+    FROM
+        t001_shouhin
+    WHERE
+        ShouhinID=1
+";</code></pre>
+<p>このように見やすい位置で改行するのが見やすくていいでしょう。</p>
+
+<h3>クエリ文字列の変数を第1引数にセットし、第2引数以下に必要な値をセットする</h3>
+<pre class="prettyprint"><code class="prettyprint"></code></pre>
+
+<h3>取得したリソース型の値をPHPで扱える形にする</h3>
+<pre class="prettyprint"><code class="prettyprint"></code></pre>
+<p></p>
+<pre class="prettyprint"><code class="prettyprint">$Sql = "SELECT * FROM t001_shouhin WHERE ShouhinID=1";</code></pre>
+<pre class="prettyprint"><code class="prettyprint">$Sql = "SELECT * FROM t001_shouhin WHERE ShouhinID=2";</code></pre>
+<pre class="prettyprint"><code class="prettyprint">$Sql = "SELECT * FROM t001_shouhin WHERE ShouhinID=3";</code></pre>
+
+<!--
+新人研修 データベースとの連携
+
+
+
+イメージ図
+
+PHPからデータベース（MySQL）に接続し、データの取得や変更を行う方法を説明します。基幹システム（旧）では「ExecuteSQL_v3」という関数が用意されています。この関数を使って、データベースにクエリを送信することができます。
+
+まずは、以下のコードを見てみましょう。
+
+$Sql = "SELECT * FROM t001_shouhin WHERE ShouhinID=1";
+$Rs0 = ExecuteSQL_v3($Sql, 'kikan1', __FILE__, __LINE__);
+$ArrItem0 = mysql_fetch_assoc($Rs0);
+
+こういった流れでデータベースのデータを取得することができます。
+以下で詳しく見ていきましょう。
+
+1. クエリ文字列を作成する
+
+  まずは、SQLを作成し、それを文字列として変数に代入します。上記の例では1行に直していますが、
+
+  $Sql = "
+    SELECT
+      *
+    FROM
+      t001_shouhin
+  ";
+
+  のように、意味のある部分で改行をして読みやすくしましょう。
+  なお、クエリの末尾の「;」は書いても書かなくてもどちらでもかまいません。この例では書いていません。
+  この「ExecuteSQL_v3」というユーザー定義関数は、定義部分を読んでみると「mysql_query」という組み込み関数が使われていますが、ほとんどこの機能を
+
+
+2. クエリ文字列の変数を第1引数にセットし、第2引数以下に必要な値をセットする
+
+  1.により取得した値は「リソース型」となっています。
+  var_dumpを実行してみると、「resource(10, mysql result)」のように出力されると思います。
+  ちなみに、このリソース型はPHPからは直接扱えないため、3.で適切な形式に変換する必要があります。
+
+  第1引数: クエリ文字列をセットする。
+  第2引数: データベース名をセットする。例)'kikan1'
+  第3引数: __FILE__
+  第4引数: __LINE__
+
+  第2引数以下は、ほぼ定型となっているので気にしなくてよいです。ただし、対象のデータベースが「kikan1」ではなく「kikan2」になる場合はそのように変える必要があります。
+
+
+3. 取得したリソース型の値をPHPで扱える形にする
+
+  2.で「ExecuteSQL_v3（mysql_query）」により取得したリソース型の変数を
+  今回は、
+  連想配列の形に
+  
+
+
+
+※変数を含めたい時
+クエリ文字列の外に（PHPで変数の値が展開されるように記述します。）
+
+$Sql = "SELECT * FROM t001_shouhin WHERE ShouhinID=○○";
+
+$Sql = "SELECT * FROM t001_shouhin WHERE ShouhinID=".$ShouhinID.";
+
+変数の部分をダブルクォーテーションの外に置き、値が展開されるようにします。
+
+このようにすれば、
+$Sql = "SELECT * FROM t001_shouhin WHERE ShouhinID=1";
+$Sql = "SELECT * FROM t001_shouhin WHERE ShouhinID=2";
+$Sql = "SELECT * FROM t001_shouhin WHERE ShouhinID=3";
+このように変数の値が展開され、うまくデータを取得できると思います。
+
+※複数行にわたるデータを取得したいとき
+最も一番上の行のデータだけしか取得することができません。
+例えば、こういった複数行にわたるデータを取得する必要がある時は、while文を使って取得します。
+
+while ( $ArrItem0 = mysql_fetch_assoc($Rs0) ) {
+  $arrColumn[] = $ArrItem0['column'];
+}
+
+のように記述しましょう。
+while文を使う
+まず、while文の中の式「$ArrItem0 = mysql_fetch_assoc($Rs0)」が評価されます。
+mysql_fetch_assoc($Rs0)が実行され、その値が $ArrItem0 に代入されます。
+whileは、$ArrItem0の値を評価するので、その中が
+
+
+
+
+
+評価されると、
+
+
+
+※更新系
+$Sql = "SELECT * FROM t001_shouhin";
+ExecuteSQL_v3($Sql, 'kikan1', __FILE__, __LINE__);
+
+データを取得しないので、ExecuteSQL_v3（mysql_query）を実行して終わり
+-->
