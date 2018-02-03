@@ -1,0 +1,491 @@
+<p>Operators are used to perform operations on variables and values.</p>
+<p>PHP divides the operators in the following groups:</p>
+<ul>
+  <li><a href="#arithmetic">代数演算子</a></li>
+  <li><a href="#assignment">代入演算子</a></li>
+  <li><a href="#comparison">比較演算子</a></li>
+  <li><a href="#increment_decrement">加算子/減算子</a></li>
+  <li><a href="#logical">論理演算子</a></li>
+  <li><a href="#string">文字列演算子</a></li>
+  <li><a href="#array">配列演算子</a></li>
+  <li><a href="#ternary">三項演算子</a></li>
+</ul>
+<hr>
+
+<h2 id="arithmetic">代数演算子</h2>
+<p>The PHP arithmetic operators are used with numeric values to perform common arithmetical operations, 
+such as addition, subtraction, multiplication etc.</p>
+<table class="w3-table-all notranslate">
+<tr>
+<th style="width:15%">Operator</th>
+<th style="width:20%">Name</th>
+<th style="width:20%">Example</th>
+<th style="width:35%">Result</th>
+<th style="width:10%">Show it</th>
+</tr>
+<tr>
+<td>+</td>
+<td>Addition</td>
+<td>$x + $y</td>
+<td>Sum of $x and $y</td>
+<td><a target="_blank" class="w3-btn btnsmall" href="showphp.asp?filename=demo_oper_addition">Show it &raquo;</a></td>
+</tr>
+<tr>
+<td>-</td>
+<td>Subtraction</td>
+<td>$x - $y</td>
+<td>Difference of $x and $y</td>
+<td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;" href="showphp.asp?filename=demo_oper_subtraction">Show it &raquo;</a></td>
+</tr>
+<tr>
+<td>*</td>
+<td>Multiplication</td>
+<td>$x * $y</td>
+<td>Product of $x and $y</td>
+<td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;" href="showphp.asp?filename=demo_oper_multiplication">Show it &raquo;</a></td>
+</tr>
+<tr>
+<td>/</td>
+<td>Division</td>
+<td>$x / $y</td>
+<td>Quotient of $x and $y</td>
+<td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;" href="showphp.asp?filename=demo_oper_division">Show it &raquo;</a></td>
+</tr>
+<tr>
+<td>%</td>
+<td>Modulus</td>
+<td>$x % $y</td>
+<td>Remainder of $x divided by $y</td>
+<td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;" href="showphp.asp?filename=demo_oper_modulus">Show it &raquo;</a></td>
+</tr>
+<tr>
+<td>**</td>
+<td>Exponentiation</td>
+<td>$x ** $y</td>
+<td>Result of raising $x to the $y'th power (Introduced in PHP 5.6)</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<hr>
+
+
+
+
+
+
+
+
+
+
+<h2 id="assignment">代入演算子</h2>
+<p>The PHP assignment operators are used with numeric values to write a value to a variable.</p>
+<p>The basic assignment operator in PHP is &quot;=&quot;. It means that the left operand 
+gets set to the value of the assignment expression on the right.</p>
+<table class="w3-table-all notranslate">
+<tr>
+<th style="width:15%">Assignment</th>
+<th style="width:20%">Same as... </th>
+<th style="width:55%">Description</th>
+<th style="width:10%">Show it</th>
+</tr>
+<tr>
+<td>x = y</td>
+<td>x = y</td>
+<td>The left operand gets set to the value of the expression on the right</td>
+<td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;" href="showphp.asp?filename=demo_oper_set">Show it &raquo;</a></td>
+</tr>
+<tr>
+<td>x += y</td>
+<td>x = x + y</td>
+<td>Addition</td>
+<td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;" href="showphp.asp?filename=demo_oper_addition2">Show it &raquo;</a></td>
+</tr>
+<tr>
+<td>x -= y</td>
+<td>x = x - y</td>
+<td>Subtraction</td>
+<td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;" href="showphp.asp?filename=demo_oper_subtraction2">Show it &raquo;</a></td>
+</tr>
+<tr>
+<td>x *= y</td>
+<td>x = x * y</td>
+<td>Multiplication</td>
+<td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;" href="showphp.asp?filename=demo_oper_multiplication">Show it &raquo;</a></td>
+</tr>
+<tr>
+<td>x /= y</td>
+<td>x = x / y</td>
+<td>Division</td>
+<td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;" href="showphp.asp?filename=demo_oper_division2">Show it &raquo;</a></td>
+</tr>
+<tr>
+<td>x %= y</td>
+<td>x = x % y</td>
+<td>Modulus</td>
+<td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;" href="showphp.asp?filename=demo_oper_modulus2">Show it &raquo;</a></td>
+</tr>
+</table>
+
+<hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="comparison">比較演算子</h2>
+<p>The PHP comparison operators are used to compare two values (number or string):</p>
+<table class="w3-table-all notranslate">
+<tr>
+<th style="width:15%">Operator</th>
+<th style="width:22%">Name</th>
+<th style="width:15%">Example</th>
+<th style="width:38%">Result</th>
+<th style="width:10%">Show it</th>
+</tr>
+<tr>
+<td>==</td>
+<td>Equal</td>
+<td>$x == $y</td>
+<td>Returns true if $x is equal to $y</td>
+<td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;" href="showphp.asp?filename=demo_oper_equal">Show it &raquo;</a></td>
+</tr>
+<tr>
+<td>===</td>
+<td>Identical</td>
+<td>$x === $y</td>
+<td>Returns true if $x is equal to $y, and they are of the same type</td>
+<td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;" href="showphp.asp?filename=demo_oper_identical">Show it &raquo;</a></td>
+</tr>
+<tr>
+<td>!=</td>
+<td>Not equal</td>
+<td>$x != $y</td>
+<td>Returns true if $x is not equal to $y</td>
+<td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;" href="showphp.asp?filename=demo_oper_not_equal">Show it &raquo;</a></td>
+</tr>
+<tr>
+<td>&lt;&gt;</td>
+<td>Not equal</td>
+<td>$x &lt;&gt; $y</td>
+<td>Returns true if $x is not equal to $y</td>
+<td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;" href="showphp.asp?filename=demo_oper_not_equal2">Show it &raquo;</a></td>
+</tr>
+<tr>
+<td>!==</td>
+<td>Not identical</td>
+<td>$x !== $y</td>
+<td>Returns true if $x is not equal to $y, or they are not of the same type</td>
+<td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;" href="showphp.asp?filename=demo_oper_not_identical">Show it &raquo;</a></td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>Greater than</td>
+<td>$x &gt; $y</td>
+<td>Returns true if $x is greater than $y</td>
+<td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;" href="showphp.asp?filename=demo_oper_greater_than">Show it &raquo;</a></td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>Less than</td>
+<td>$x &lt; $y</td>
+<td>Returns true if $x is less than $y</td>
+<td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;" href="showphp.asp?filename=demo_oper_less_than">Show it &raquo;</a></td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td>Greater than or equal to</td>
+<td>$x &gt;= $y</td>
+<td>Returns true if $x is greater than or equal to $y</td>
+<td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;" href="showphp.asp?filename=demo_oper_greater_than2">Show it &raquo;</a></td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>Less than or equal to</td>
+<td>$x &lt;= $y</td>
+<td>Returns true if $x is less than or equal to $y</td>
+<td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;" href="showphp.asp?filename=demo_oper_less_than2">Show it &raquo;</a></td>
+</tr>
+</table>
+<hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="increment_decrement">加算子/減算子</h2>
+<p>The PHP increment operators are used to increment a variable's value.</p>
+<p>The PHP decrement operators are used to decrement a variable's value.</p>
+<table class="w3-table-all notranslate" id="table1">
+<tr>
+<th style="width:15%">Operator</th>
+<th style="width:20%">Name </th>
+<th style="width:55%">Description</th>
+<th style="width:10%">Show it</th>
+</tr>
+<tr>
+<td>++$x</td>
+<td>Pre-increment</td>
+<td>Increments $x by one, then returns $x</td>
+<td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;" href="showphp.asp?filename=demo_oper_pre_incr">Show it &raquo;</a></td>
+</tr>
+<tr>
+<td>$x++</td>
+<td>Post-increment</td>
+<td>Returns $x, then increments $x by one</td>
+<td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;" href="showphp.asp?filename=demo_oper_post_incr">Show it &raquo;</a></td>
+</tr>
+<tr>
+<td>--$x</td>
+<td>Pre-decrement</td>
+<td>Decrements $x by one, then returns $x</td>
+<td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;" href="showphp.asp?filename=demo_oper_pre_decr">Show it &raquo;</a></td>
+</tr>
+<tr>
+<td>$x--</td>
+<td>Post-decrement</td>
+<td>Returns $x, then decrements $x by one</td>
+<td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;" href="showphp.asp?filename=demo_oper_post_decr">Show it &raquo;</a></td>
+</tr>
+</table>
+<hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="logical">論理演算子</h2>
+<p>The PHP logical operators are used to combine conditional statements.</p>
+<table class="w3-table-all notranslate">
+<tr>
+<th style="width:15%">Operator</th>
+<th style="width:20%">Name</th>
+<th style="width:20%">Example</th>
+<th style="width:35%">Result</th>
+<th style="width:10%">Show it</th>
+</tr>
+<tr>
+<td>and</td>
+<td>And</td>
+<td>$x and $y</td>
+<td>True if both $x and $y are true</td>
+<td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;" href="showphp.asp?filename=demo_oper_and">Show it &raquo;</a></td>
+</tr>
+<tr>
+<td>or</td>
+<td>Or</td>
+<td>$x or $y</td>
+<td>True if either $x or $y is true</td>
+<td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;" href="showphp.asp?filename=demo_oper_or">Show it &raquo;</a></td>
+</tr>
+<tr>
+<td>xor</td>
+<td>Xor</td>
+<td>$x xor $y</td>
+<td>True if either $x or $y is true, but not both</td>
+<td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;" href="showphp.asp?filename=demo_oper_xor">Show it &raquo;</a></td>
+</tr>
+<tr>
+<td>&amp;&amp;</td>
+<td>And</td>
+<td>$x &amp;&amp; $y</td>
+<td>True if both $x and $y are true</td>
+<td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;" href="showphp.asp?filename=demo_oper_and2">Show it &raquo;</a></td>
+</tr>
+<tr>
+<td>||</td>
+<td>Or</td>
+<td>$x || $y</td>
+<td>True if either $x or $y is true</td>
+<td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;" href="showphp.asp?filename=demo_oper_or2">Show it &raquo;</a></td>
+</tr>
+<tr>
+<td>!</td>
+<td>Not</td>
+<td>!$x</td>
+<td>True if $x is not true</td>
+<td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;" href="showphp.asp?filename=demo_oper_not">Show it &raquo;</a></td>
+</tr>
+</table>
+<hr>
+
+
+
+
+
+
+
+
+
+<h2 id="string">文字列演算子</h2>
+<p>PHP has two operators that are specially designed for strings.</p>
+<table class="w3-table-all notranslate">
+<tr>
+<th style="width:15%">Operator</th>
+<th style="width:25%">Name</th>
+<th style="width:25%">Example</th>
+<th style="width:25%">Result</th>
+<th style="width:10%">Show it</th>
+</tr>
+<tr>
+<td>.</td>
+<td>Concatenation</td>
+<td>$txt1 . $txt2</td>
+<td>Concatenation of $txt1 and $txt2</td>
+<td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;" href="showphp.asp?filename=demo_oper_string1">Show it &raquo;</a></td>
+</tr>
+<tr>
+<td>.=</td>
+<td>Concatenation assignment</td>
+<td>$txt1 .= $txt2</td>
+<td>Appends $txt2 to $txt1</td>
+<td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;" href="showphp.asp?filename=demo_oper_string2">Show it &raquo;</a></td>
+</tr>
+</table>
+<hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="array">配列演算子</h2>
+<p>The PHP array operators are used to compare arrays.</p>
+
+<table class="table table-striped table-hover ">
+<thead>
+<tr>
+<th style="width:15%">演算子</th>
+<th style="width:18%">名前</th>
+<th style="width:17%">例</th>
+<th style="width:40%">結果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+</td>
+<td>結合</td>
+<td>$x + $y</td>
+<td>Union of $x and $y</td></td>
+</tr>
+<tr>
+<td>==</td>
+<td>同等</td>
+<td>$x == $y</td>
+<td>Returns true if $x and $y have the same key/value pairs</td>
+</tr>
+<tr>
+<td>===</td>
+<td>同一</td>
+<td>$x === $y</td>
+<td>Returns true if $x and $y have the same key/value pairs in the same order and of the same types</td>
+</tr>
+<tr>
+<td>!=</td>
+<td>等しくない</td>
+<td>$x != $y</td>
+<td>Returns true if $x is not equal to $y</td>
+</tr>
+<tr>
+<td>&lt;&gt;</td>
+<td>等しくない</td>
+<td>$x &lt;&gt; $y</td>
+<td>Returns true if $x is not equal to $y</td>
+</tr>
+<tr>
+<td>!==</td>
+<td>同一でない</td>
+<td>$x !== $y</td>
+<td>Returns true if $x is not identical to $y</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+<hr>
+<h2 id="ternary">三項演算子</h2>
+<p>
+条件演算子として "?:"（あるいは三項）演算子があります。
+</p>
+
+<h3>例: デフォルト値を設定する</h3>
+
+<pre class="prettyprint"><code class="prettyprint">&lt;?php
+// 三項演算子の使用例
+$action = (empty($_POST['action'])) ? 'default' : $_POST['action'];
+
+// 上記は以下の if/else 式と同じです。
+if (empty($_POST['action'])) {
+    $action = 'default';
+} else {
+    $action = $_POST['action'];
+}
+?></code></pre>
+
+<p>
+(expr1) ? (expr2) : (expr3) という式は、式1 が TRUE の場合に 式2 を、 式1 が FALSE の場合に 式3 を値とします。
+</p>
+<p>
+以降では、三項演算子のまんなかの部分をなくすこともできるようになりました。 式 expr1 ?: expr3 の結果は、expr1 が TRUE と同等の場合は expr1、 それ以外の場合は expr3 となります。
+</p>
+<div class="panel panel-default">
+  <div class="panel-body">
+    mysqlのIF関数
+  </div>
+</div>

@@ -1,0 +1,151 @@
+<p>配列は、複数の値をひとつの変数の中に入れることができます。</p>
+
+<h3>Example</h3>
+<pre class="prettyprint"><code class="prettyprint">&lt;?php
+$cars = array("Volvo", "BMW", "Toyota");
+echo "I like " . $cars[0] . ", " . $cars[1] . " and " . $cars[2] . ".";
+?></code></pre>
+
+<hr>
+
+<h2>配列って？</h2>
+<p>配列は特別な変数のことで、一度に一つ以上の値を含めることができます。</p>
+<p>If you have a list of items (a list of car names, for example), storing the cars in single variables could look like this:</p>
+
+<div class="w3-code w3-border notranslate"><div>
+$cars1 = &quot;Volvo&quot;;<br>
+$cars2 = &quot;BMW&quot;;<br>
+$cars3 = &quot;Toyota&quot;;
+</div></div>
+
+<p>However, what if you want to loop through the cars and find a specific one?
+And what if you had not 3 cars, but 300?</p>
+
+<p>これを解決するには、配列をつくることです！</p>
+
+<p>配列は、ひとつの名前でたくさんの値を含めることができ、インデックス番号を参照することでそれらの値にアクセスすることができます。</p>
+
+
+<hr>
+
+
+
+
+<h2>配列をつくる</h2>
+<p>array関数は、配列をつくるときに使われます。</p>
+<div class="panel panel-default">
+  <div class="panel-body">
+    array();
+  </div>
+</div>
+
+<p>配列には、3つのタイプがあります。</p>
+<ul>
+  <li><b>添字配列</b> - Arrays with a numeric index</li>
+  <li><b>連想配列</b> - Arrays with named keys</li>
+  <li><b>多次元配列</b> - Arrays containing one or more arrays</li>
+</ul>
+
+<hr>
+
+
+
+<h2>添字配列</h2>
+<p>There are two ways to create indexed arrays:</p>
+<p>The index can be assigned automatically (index 
+always starts at 0), like this:</p>
+<div class="w3-code w3-border notranslate"><div>
+$cars = array(&quot;Volvo&quot;, &quot;BMW&quot;, &quot;Toyota&quot;);</div></div>
+
+<p>or the index can be assigned manually:</p>
+<div class="w3-code w3-border notranslate"><div>
+$cars[0] = &quot;Volvo&quot;;<br>
+$cars[1] = &quot;BMW&quot;;<br>
+$cars[2] = &quot;Toyota&quot;;
+</div></div>
+<p>The following example creates an indexed array named $cars, assigns three 
+elements to it, and then prints a text containing the array values:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code htmlHigh notranslate">
+&lt;?php<br>
+ $cars = array(&quot;Volvo&quot;, &quot;BMW&quot;, &quot;Toyota&quot;);<br>echo &quot;I like &quot; . $cars[0] . &quot;, &quot; . $cars[1] . &quot; and &quot; . $cars[2] . &quot;.&quot;;<br>
+?&gt;
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showphp.asp?filename=demo_array_num">Run example &raquo;</a>
+</div>
+<hr>
+
+<h2>配列の要素数を取得する - count関数</h2>
+<p>count関数 is used to return the length (the number of elements) of 
+an array:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code htmlHigh notranslate">
+&lt;?php<br>
+ $cars = array(&quot;Volvo&quot;, &quot;BMW&quot;, &quot;Toyota&quot;);<br>echo count($cars);<br>?&gt;
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showphp.asp?filename=demo_array_length">Run example &raquo;</a>
+</div>
+<hr>
+
+<h2>添字配列をループする</h2>
+<p>To loop through and print all the values of an indexed array, you could use a for loop, like this:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code htmlHigh notranslate">
+&lt;?php<br>
+ $cars = array(&quot;Volvo&quot;, &quot;BMW&quot;, &quot;Toyota&quot;);<br>
+ $arrlength = count($cars);<br><br>for($x = 0; $x &lt; $arrlength; $x++) {<br>&nbsp; &nbsp; echo $cars[$x];<br>&nbsp;&nbsp;&nbsp; echo &quot;&lt;br&gt;&quot;;<br>}<br>?&gt;
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showphp.asp?filename=demo_array_num_loop">Run example &raquo;</a>
+</div>
+
+<hr>
+
+<h2>連想配列</h2>
+<p>Associative arrays are arrays that use named keys that you assign to them.</p>
+<p>There are two ways to create an associative array:&nbsp;</p>
+<div class="w3-code w3-border notranslate"><div>
+
+$age = array(&quot;Peter&quot;=&gt;&quot;35&quot;, &quot;Ben&quot;=&gt;&quot;37&quot;, &quot;Joe&quot;=&gt;&quot;43&quot;);</div></div>
+<p>or:</p>
+<div class="w3-code w3-border notranslate"><div>
+
+$age['Peter'] = &quot;35&quot;;<br>
+$age['Ben'] = &quot;37&quot;;<br>
+$age['Joe'] = &quot;43&quot;; 
+</div></div>
+<p>The named keys can then be used in a script:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code htmlHigh notranslate">
+&lt;?php<br>
+
+$age = array(&quot;Peter&quot;=&gt;&quot;35&quot;, &quot;Ben&quot;=&gt;&quot;37&quot;, &quot;Joe&quot;=&gt;&quot;43&quot;);<br>
+echo &quot;Peter is &quot; . $age['Peter'] . &quot; years old.&quot;;<br>
+?&gt;
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showphp.asp?filename=demo_array_assoc">Run example &raquo;</a>
+</div>
+<hr>
+
+<h2>連想配列をループする</h2>
+<p>To loop through and print all the values of an associative array, you could use a foreach loop, like this:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code htmlHigh notranslate">
+ &lt;?php<br>$age = array(&quot;Peter&quot;=&gt;&quot;35&quot;, &quot;Ben&quot;=&gt;&quot;37&quot;, &quot;Joe&quot;=&gt;&quot;43&quot;);<br>
+ <br>foreach($age as $x =&gt; $x_value) {<br>&nbsp; &nbsp; echo &quot;Key=&quot; . $x . &quot;, Value=&quot; . $x_value;<br>&nbsp;&nbsp;&nbsp; echo &quot;&lt;br&gt;&quot;;<br>}<br>?&gt;
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showphp.asp?filename=demo_array_assoc_loop">Run example &raquo;</a>
+</div>
+<hr>
+
+<h2>多次元配列</h2>
+<p><a href="php_arrays_multi.asp">Multidimensional arrays</a> will be explained in the 
+PHP advanced section.</p>
+<hr>

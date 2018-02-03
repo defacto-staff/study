@@ -1,0 +1,94 @@
+<p class="intro">A cookie is often used to identify a user.</p>
+<hr>
+
+<h2>What is a Cookie? </h2>
+<p>A cookie is often used to identify a user. A cookie is a small file that the 
+server embeds on the user's computer. Each time the same computer requests a 
+page with a browser, it will send the cookie too. With PHP, you can both create 
+and retrieve cookie values.</p>
+<hr>
+
+<h2>Create Cookies With PHP</h2>
+<p>A cookie is created with the setcookie() function.</p>
+
+<h3>Syntax</h3>
+<div class="w3-code w3-border notranslate"><div>
+setcookie(<em>name, value, expire, path, domain, secure, httponly</em>);</div></div>
+
+<p>Only the <em>name</em> parameter is required. All other parameters are 
+optional.</p>
+<hr>
+
+<h2>PHP Create/Retrieve a Cookie</h2>
+<p>The following example creates a cookie named &quot;user&quot; with the value &quot;John 
+Doe&quot;. The cookie will expire after 30 days (86400 * 30). The &quot;/&quot; means that the 
+cookie is available in entire website (otherwise, select the directory you 
+prefer).</p>
+<p>We then retrieve the value of the cookie "user" (using the global variable 
+$_COOKIE). We also use the isset() function to find out if the cookie is set:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code htmlHigh notranslate">
+ &lt;?php<br>$cookie_name = &quot;user&quot;;<br>$cookie_value = &quot;John Doe&quot;;<br>setcookie($cookie_name, $cookie_value, time() + (86400 * 30), &quot;/&quot;); // 86400 = 1 day<br>?&gt;<br>&lt;html&gt;<br>&lt;body&gt;<br><br>&lt;?php<br>if(!isset($_COOKIE[$cookie_name])) {<br>&nbsp;&nbsp;&nbsp; echo &quot;Cookie named '&quot; . $cookie_name . &quot;' is not set!&quot;;<br>} else {<br>&nbsp;&nbsp;&nbsp; echo &quot;Cookie '&quot; . $cookie_name . &quot;' is set!&lt;br&gt;&quot;;<br>&nbsp;&nbsp;&nbsp; echo &quot;Value is: &quot; . $_COOKIE[$cookie_name];<br>}<br>?&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showphp.asp?filename=demo_cookie1">Run example &raquo;</a>
+</div>
+
+<div class="w3-panel w3-note"><p>
+<p><strong><b>Note:</b></strong> The setcookie() function must appear BEFORE the &lt;html&gt; tag.</p>
+</div>
+
+<p><b>Note: </b>The value of the cookie is automatically URLencoded when 
+sending the cookie, and automatically decoded when received (to prevent 
+URLencoding, use setrawcookie() instead).</p>
+<hr>
+<div style="overflow:auto;text-align:center">
+<!-- MidContent -->
+  <div id='div-gpt-ad-1493883843099-0' style="display: inline-block">
+    <script>
+    googletag.cmd.push(function() { googletag.display('div-gpt-ad-1493883843099-0'); });
+    </script>
+  </div>  
+</div>
+<hr>
+<h2>Modify a Cookie Value</h2>
+<p>To modify a cookie, just set (again) the cookie using the setcookie() function:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code htmlHigh notranslate">
+ &lt;?php<br>$cookie_name = &quot;user&quot;;<br>$cookie_value = &quot;Alex Porter&quot;;<br>
+ setcookie($cookie_name, $cookie_value, time() + (86400 * 30), &quot;/&quot;);<br>?&gt;<br>&lt;html&gt;<br>&lt;body&gt;<br><br>&lt;?php<br>if(!isset($_COOKIE[$cookie_name])) {<br>&nbsp;&nbsp;&nbsp; echo &quot;Cookie named '&quot; . $cookie_name . &quot;' is not set!&quot;;<br>} else {<br>&nbsp;&nbsp;&nbsp; echo &quot;Cookie '&quot; . $cookie_name . &quot;' is set!&lt;br&gt;&quot;;<br>&nbsp;&nbsp;&nbsp; echo &quot;Value is: &quot; . $_COOKIE[$cookie_name];<br>}<br>?&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showphp.asp?filename=demo_cookie3">Run example &raquo;</a>
+</div>
+<hr>
+
+<h2>Delete a Cookie</h2>
+<p>To delete a cookie, use the setcookie() function with an expiration date in 
+the past:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code htmlHigh notranslate">
+ &lt;?php<br>// set the expiration date to one hour ago<br>setcookie(&quot;user&quot;, &quot;&quot;, time() - 3600);<br>?&gt;<br>&lt;html&gt;<br>&lt;body&gt;<br><br>&lt;?php<br>echo &quot;Cookie 'user' is deleted.&quot;;<br>?&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showphp.asp?filename=demo_cookie4">Run example &raquo;</a>
+</div>
+<hr>
+
+<h2>Check if Cookies are Enabled</h2>
+<p>The following example creates a small script that checks whether cookies are 
+enabled. First, try to create a test cookie with the setcookie() function, then 
+count the $_COOKIE array variable:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code htmlHigh notranslate">
+ &lt;?php<br>setcookie(&quot;test_cookie&quot;, &quot;test&quot;, time() + 3600, '/');<br>?&gt;<br>&lt;html&gt;<br>&lt;body&gt;<br><br>&lt;?php<br>if(count($_COOKIE) &gt; 0) {<br>&nbsp;&nbsp;&nbsp; echo &quot;Cookies are enabled.&quot;;<br>} else {<br>&nbsp;&nbsp;&nbsp; echo &quot;Cookies are disabled.&quot;;<br>}<br>
+ ?&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showphp.asp?filename=demo_cookie5">Run example &raquo;</a>
+</div>
+<hr>
+
+<h2>Complete PHP HTTP Reference</h2>
+<p>For a complete reference of HTTP functions, go to our complete
+<a href="php_ref_http.asp">PHP HTTP Reference</a>.</p>

@@ -1,0 +1,98 @@
+<p class="intro">The real power of PHP comes from its functions; it has more 
+than 1000 built-in functions.</p>
+<hr>
+
+<h2>PHP User Defined Functions</h2>
+<p>Besides the built-in PHP functions, we can create our own functions.</p>
+<p>A function is a block of statements that can be used repeatedly in a program.</p>
+<p>A function will not execute immediately when a page loads.</p>
+<p>A function will be executed by a call to the function.</p>
+<hr>
+
+<h2>Create a User Defined Function in PHP</h2>
+<p>A user defined function declaration starts with the word "function":</p>
+<h3>Syntax</h3>
+<div class="w3-code w3-border notranslate"><div>
+ function <i>functionName</i>()
+ {<br>
+<i>&nbsp; &nbsp; code to be executed</i>;<br>
+ }
+</div></div>
+<p><strong>Note:</strong> A function name can start with a letter or underscore 
+(not a number).</p>
+<p><strong>Tip:</strong> Give the function a name that reflects what the 
+function does!</p>
+<div class="w3-panel w3-note">
+<p>Function names are NOT case-sensitive.</p>
+</div>
+
+<p>In the example below, we create a function named "writeMsg()". The opening 
+curly brace ( { ) indicates the beginning of the function code and the closing 
+curly brace ( } ) indicates the end of the function. The function outputs "Hello 
+world!". To call the function, just write its name:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code htmlHigh notranslate">
+ &lt;?php<br>function writeMsg() {<br>&nbsp;&nbsp;&nbsp; echo "Hello world!";<br>
+ }<br><br>writeMsg(); // call the function<br>?&gt;</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showphp.asp?filename=demo_function1">Run example &raquo;</a>
+</div>
+<hr>
+<div style="overflow:auto;text-align:center">
+<!-- MidContent -->
+  <div id='div-gpt-ad-1493883843099-0' style="display: inline-block">
+    <script>
+    googletag.cmd.push(function() { googletag.display('div-gpt-ad-1493883843099-0'); });
+    </script>
+  </div>  
+</div>
+<hr>
+<h2>PHP Function Arguments</h2>
+<p>Information can be passed to functions through arguments. An argument is just 
+like a variable.</p>
+<p>Arguments are specified after the function name, inside the parentheses. You 
+can add as many arguments as you want, just separate them with a comma. </p>
+
+<p>The following example has a function with one argument ($fname). When the 
+familyName() function is called, we also pass along a name (e.g. Jani), and the 
+name is used inside the function, which outputs several different first names, 
+but an equal last name:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code htmlHigh notranslate">
+ &lt;?php<br>function familyName($fname) {<br>&nbsp;&nbsp;&nbsp; echo "$fname Refsnes.&lt;br&gt;";<br>
+ }<br><br>familyName("Jani");<br>familyName("Hege");<br>
+ familyName("Stale");<br>familyName("Kai Jim");<br>familyName("Borge");<br>?&gt;</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showphp.asp?filename=demo_function2">Run example &raquo;</a>
+</div>
+
+<p>The following example has a function with two arguments ($fname and $year):</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code htmlHigh notranslate">
+ &lt;?php<br>function familyName($fname, $year) {<br>&nbsp; &nbsp; echo "$fname Refsnes. Born in $year &lt;br&gt;";<br>}<br><br>familyName("Hege", "1975");<br>
+ familyName("Stale", "1978");<br>familyName("Kai Jim", "1983");<br>?&gt;</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showphp.asp?filename=demo_function3">Run example &raquo;</a>
+</div>
+<hr>
+
+<h2>PHP Default Argument Value</h2>
+<p>The following example shows how to use a default parameter. If we call the 
+function setHeight() without arguments it takes the default value as argument:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code htmlHigh notranslate">
+ &lt;?php<br>function setHeight($minheight = 50) {<br>&nbsp;&nbsp;&nbsp; echo "The height is : $minheight &lt;br&gt;";<br>}<br><br>setHeight(350);<br>setHeight(); // will use the default value of 50<br>setHeight(135);<br>setHeight(80);<br>?&gt;</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showphp.asp?filename=demo_function4">Run example &raquo;</a>
+</div>
+<hr>
+
+<h2>PHP Functions - Returning values</h2>
+<p>To let a function return a value, use the return statement:&nbsp;</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code htmlHigh notranslate">
+ &lt;?php<br>function sum($x, $y) {<br>&nbsp; &nbsp; $z = $x + $y;<br>&nbsp;&nbsp;&nbsp; return $z;<br>}<br><br>
+ echo "5 + 10 = " . sum(5, 10) . "&lt;br&gt;";<br>echo "7 + 13 = " . sum(7, 13) . "&lt;br&gt;";<br>echo "2 + 4 = " . sum(2, 4);<br>?&gt;</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showphp.asp?filename=demo_function5">Run example &raquo;</a>
+</div>

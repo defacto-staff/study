@@ -73,13 +73,9 @@
         <ul class="nav navbar-nav">
           <li><a href="index.php">HOME</a></li>
           <li class="dropdown active">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">目次 <span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">目次<span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
-              <?php
-                foreach ($array as $value) {
-                  print $value;
-                }
-              ?>
+              <?php foreach ($array as $value) { print $value; } ?>
             </ul>
           </li>
           <li><a href="//php.net/manual/ja/index.php">PHP マニュアル</a></li>
@@ -90,9 +86,11 @@
 </header>
 
 <div class="container">
-  <div>
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="page-header">
+  <div class="row">
+    <div class="col-lg-12">
 
-          <?php print $h1; ?>
+      <ul class="pager">
+        <?php print $pager; ?>
+      </ul>
+
+      <?php print $h1; ?>

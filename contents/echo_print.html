@@ -1,7 +1,8 @@
 <p class="intro">In PHP there are two basic ways to get output: echo and print.</p>
 <p class="intro">In this tutorial we use echo (and print) in almost every 
-example. So, this chapter contains a little more info about those two output 
-statements.</p>
+example.
+So, this chapter contains a little more info about those two output statements.
+それが、「echo」と「print」です。</p>
 <hr>
 
 <h2>PHP echo and print Statements</h2>
@@ -19,24 +20,77 @@ echo or echo().</p>
 <p><strong>Display Text</strong></p>
 <p>The following example shows how to output text with the echo 
 command (notice that the text can contain HTML markup):</p>
-<div class="w3-example">
+
+
+
+
 <h3>Example</h3>
-<div class="w3-code htmlHigh notranslate">
-&lt;?php<br>
- echo &quot;&lt;h2&gt;PHP is Fun!&lt;/h2&gt;&quot;;<br>
- echo &quot;Hello world!&lt;br&gt;&quot;;<br>echo &quot;I'm about to learn PHP!&lt;br&gt;&quot;;<br>
- echo &quot;This &quot;, &quot;string &quot;, &quot;was &quot;, &quot;made &quot;, &quot;with multiple parameters.&quot;;<br>
-?&gt;
-</div>
-<a target="_blank" class="w3-btn w3-margin-bottom" href="showphp.asp?filename=demo_echo1">Run example &raquo;</a>
-</div>
+<pre class="prettyprint"><code class="prettyprint">&lt;?php
+echo "&lt;h2>PHP is Fun!&lt;/h2>";
+echo "Hello world!&lt;br>";
+echo "I'm about to learn PHP!&lt;br>";
+echo "This ", "string ", "was ", "made ", "with multiple parameters.";
+?></code></pre>
+
+
+
+
 <p><strong>Display Variables</strong></p>
 <p>The following example shows how to output text and variables with the echo 
 statement:</p>
-<div class="w3-example">
+
+
 <h3>Example</h3>
-<div class="w3-code htmlHigh notranslate">
- &lt;?php<br>$txt1 = &quot;Learn PHP&quot;;<br>$txt2 = &quot;W3Schools.com&quot;;<br>
- $x = 5;<br>$y = 4;<br>
- <br>echo &quot;&lt;h2&gt;&quot; . $txt1 . &quot;&lt;/h2&gt;&quot;;<br>echo &quot;Study PHP at 
-  &quot; . $txt2 . &quot;&lt;br&gt;&quot;;<br>echo $x + $y;<br>?&gt; </div>
+
+<pre class="prettyprint"><code class="prettyprint">&lt;?php
+$txt1 = "Learn PHP";
+$txt2 = "W3Schools.com";
+$x = 5;
+$y = 4;
+
+echo "&lt;h2>" . $txt1 . "&lt;/h2>";
+echo "Study PHP at " . $txt2 . "&lt;br>";
+echo $x + $y;
+?></code></pre>
+
+
+
+
+<hr>
+
+<h2>The PHP print Statement</h2>
+<p>The print statement can be used with or without 
+parentheses: 
+print or print().</p>
+<p><strong>Display Text</strong></p>
+<p>The following example shows how to output text with the print 
+command (notice that the text can contain HTML markup):</p>
+
+
+
+<h3>Example</h3>
+<pre class="prettyprint"><code class="prettyprint">&lt;?php
+print "&lt;h2>PHPはたのしい！&lt;/h2>";
+print "Hello world!&lt;br>";
+print "I'm about to learn PHP!";
+?></code></pre>
+
+
+
+<p><strong>Display Variables</strong></p>
+<p>The following example shows how to output text and variables with the 
+print statement:</p>
+
+
+
+<h3>Example</h3>
+<pre class="prettyprint"><code class="prettyprint">&lt;?php
+$txt1 = "Learn PHP";
+$txt2 = "デファクトスタンダード";
+$x = 5;
+$y = 4;
+
+print "&lt;h2>" . $txt1 . "&lt;/h2>";
+print "Study PHP at " . $txt2 . "&lt;br>";
+print $x + $y;
+?></code></pre>

@@ -1,0 +1,114 @@
+<h2>PHP Data Types</h2>
+<p>Variables can store data of different types, and different data types can do 
+different things.</p>
+<p>PHP supports the following data types:</p>
+<ul>
+  <li>String</li>
+  <li>Integer</li>
+  <li>Float (floating point numbers - also called double)</li>
+  <li>Boolean</li>
+  <li>Array</li>
+  <li>Object</li>
+  <li>NULL</li>
+  <li>Resource</li>
+</ul>
+<hr>
+
+<h2>PHP String</h2>
+<p>A string is a sequence of characters, like &quot;Hello world!&quot;.</p>
+<p>A string can be any text inside quotes. You can use single or double quotes:</p>
+<div class="w3-example">
+ <h3>Example</h3>
+<div class="w3-code htmlHigh notranslate">
+ &lt;?php <br>$x = &quot;Hello world!&quot;;<br>$y = 'Hello world!';<br><br>echo $x;<br>echo &quot;&lt;br&gt;&quot;; <br>echo $y;<br>?&gt;</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showphp.asp?filename=demo_datatypes_string">Run example &raquo;</a></div>
+<hr>
+
+<h2>PHP Integer</h2>
+<p>An integer data type is a non-decimal number between -2,147,483,648 and 
+2,147,483,647.</p>
+<p>Rules for integers:</p>
+<ul>
+  <li>An integer must have at least one digit</li>
+  <li>An integer must not have a decimal point</li>
+  <li>An integer can be either positive or negative</li>
+  <li>Integers can be specified in three formats: decimal (10-based), hexadecimal (16-based - prefixed with 0x) or octal (8-based - prefixed with 0)</li>
+</ul>
+<p>In the following example $x is an integer. The PHP var_dump() 
+function returns the data type and value:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code htmlHigh notranslate">
+ &lt;?php <br>$x = 5985;<br>var_dump($x);<br>?&gt;</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showphp.asp?filename=demo_datatypes_integer">Run example &raquo;</a></div>
+
+<hr>
+
+<h2>PHP Float</h2>
+<p>A float (floating point number) is a number with a decimal point or a number in exponential form.</p>
+<p>In the following example $x is a float. The PHP var_dump() 
+function returns the data type and value:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code htmlHigh notranslate">
+ &lt;?php <br>$x = 10.365;<br>var_dump($x);<br>?&gt; </div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showphp.asp?filename=demo_datatypes_float">Run example &raquo;</a></div>
+<hr>
+
+<h2>PHP Boolean</h2>
+<p>A Boolean represents two possible states: TRUE or FALSE.</p>
+<div class="w3-code htmlHigh w3-border notranslate">
+<div>
+ $x = true;<br>
+ $y = false;</div></div>
+<p>Booleans are often used in conditional testing. You will learn more about 
+conditional testing in a later chapter of this tutorial.</p>
+<hr>
+
+<h2>PHP Array</h2>
+<p>An array stores multiple values in one single variable.</p>
+<p>In the following example $cars is an array. The PHP var_dump() 
+function returns the data type and value:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code htmlHigh notranslate">
+ &lt;?php <br>$cars = array(&quot;Volvo&quot;,&quot;BMW&quot;,&quot;Toyota&quot;);<br>var_dump($cars);<br>
+ ?&gt; </div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showphp.asp?filename=demo_datatypes_array">Run example &raquo;</a></div>
+<p>You will learn a lot more about arrays in later chapters of this tutorial.</p>
+<hr>
+
+<h2>PHP Object</h2>
+<p>An object is a data type which stores data and information on how to process that data.</p>
+<p>In PHP, an object must be explicitly declared.</p>
+<p>First we must declare a class of object. For this, we use the class keyword. 
+A class is a structure that can contain properties and methods:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code htmlHigh notranslate">
+ &lt;?php<br>class Car {<br>&nbsp;&nbsp;&nbsp; function Car() {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $this-&gt;model = &quot;VW&quot;;<br>&nbsp;&nbsp;&nbsp; }<br>}<br><br>// create an object<br>
+ $herbie = new Car();<br><br>// show object properties<br>echo $herbie-&gt;model;<br>?&gt; </div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showphp.asp?filename=demo_datatypes_object">Run example &raquo;</a></div>
+<p>You will learn more about objects in a later chapter of this tutorial.</p>
+<hr>
+
+<h2>PHP NULL Value</h2>
+<p>Null is a special data type which can have only one value: NULL.</p>
+<p>A variable of data type NULL is a variable that has no value assigned to it.</p>
+<p><strong>Tip:</strong> If a variable is created without a value, it is 
+automatically assigned a value of NULL.</p>
+<p>Variables can also be emptied by setting the value to NULL:</p>
+<div class="w3-example">
+ <h3>Example</h3>
+<div class="w3-code htmlHigh notranslate">
+ &lt;?php<br>$x = &quot;Hello world!&quot;;<br>$x = null;<br>var_dump($x);<br>?&gt; </div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showphp.asp?filename=demo_datatypes_null">Run example &raquo;</a></div>
+<hr>
+
+<h2>PHP Resource</h2>
+<p>The special resource type is not an actual data type. It is the storing of a 
+reference to functions and resources external to PHP.</p>
+<p>A common example of 
+using the resource data type is a database call.</p>
+<p>We will not talk about the resource type here, since it is an advanced topic.</p>

@@ -1,0 +1,60 @@
+<p class="intro">Constants are like variables except that once they are defined 
+they cannot be changed or undefined.</p>
+<hr>
+
+<h2>PHP Constants</h2>
+
+<p>A constant is an identifier (name) for a simple value. The value cannot be 
+changed during the script.</p>
+<p>A valid constant name starts with a letter or underscore (no $ sign before 
+the constant name).</p>
+<p><strong>Note:</strong> Unlike variables, constants are automatically global across 
+the entire script.</p>
+<hr>
+
+<h2>Create a PHP Constant</h2>
+<p>To create a constant, use the define() function.</p>
+<h3>Syntax</h3>
+<div class="w3-code w3-border notranslate"><div>
+ define(<i>name</i>, <i>value</i>, <i>case-insensitive</i>)</div></div>
+
+<p>Parameters:</p>
+<ul>
+  <li><i>name</i>: Specifies the name of the constant</li>
+  <li><i>value</i>: Specifies the value of the constant</li>
+  <li><i>case-insensitive</i>: Specifies whether the constant name should be case-insensitive. Default is false</li>
+</ul>
+
+<p>The example below creates a constant with a <strong>case-sensitive</strong> name:</p>
+<div class="w3-example">
+ <h3>Example</h3>
+<div class="w3-code htmlHigh notranslate">
+&lt;?php<br>
+ define(&quot;GREETING&quot;, &quot;Welcome to W3Schools.com!&quot;);<br>echo GREETING;<br>?&gt;
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showphp.asp?filename=demo_constant1">Run example &raquo;</a>
+</div>
+
+<p>The example below creates a constant with a <strong>case-insensitive</strong> name:</p>
+<div class="w3-example">
+ <h3>Example</h3>
+<div class="w3-code htmlHigh notranslate">
+&lt;?php<br>
+ define(&quot;GREETING&quot;, &quot;Welcome to W3Schools.com!&quot;, true);<br>echo greeting;<br>?&gt;
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showphp.asp?filename=demo_constant2">Run example &raquo;</a>
+</div>
+<hr>
+
+<h2>Constants are Global</h2>
+<p>Constants are automatically global and can be used across 
+the entire script.</p>
+<p>The example below uses a constant inside a function, even if it is defined 
+outside the function:</p>
+<div class="w3-example">
+ <h3>Example</h3>
+<div class="w3-code htmlHigh notranslate">
+ &lt;?php<br>define(&quot;GREETING&quot;, &quot;Welcome to W3Schools.com!&quot;);<br><br>function myTest() {<br>&nbsp;&nbsp;&nbsp; echo GREETING;<br>}<br>&nbsp;<br>myTest();<br>
+ ?&gt; </div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showphp.asp?filename=demo_constant3">Run example &raquo;</a>
+</div>

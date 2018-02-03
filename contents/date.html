@@ -1,0 +1,179 @@
+<p class="intro">The PHP date() function is used to format a date and/or a time.</p>
+<hr>
+
+<h2>The PHP Date() Function</h2>
+<p>The PHP date() function formats a timestamp to a more readable date and time.</p>
+<h3>Syntax</h3>
+<div class="w3-code w3-border notranslate"><div>
+date(<i>format</i>,<i>timestamp</i>)
+</div></div>
+
+<table class="w3-table-all notranslate">
+  <tr>
+    <th style="width:20%">Parameter</th>
+    <th style="width:80%">Description</th>
+  </tr>  
+  <tr>
+    <td>format</td>
+    <td>Required. Specifies the format of the timestamp</td>
+  </tr>
+  <tr>
+    <td>timestamp</td>
+    <td>Optional. Specifies a timestamp. Default is the current date and time</td>
+  </tr>
+</table>
+
+<div class="w3-panel w3-note"><p>
+<p>A timestamp is a sequence of 
+characters, denoting the date and/or time at which a certain event occurred.</p>
+</div>
+
+<hr>
+
+<h2>Get a Simple Date</h2>
+<p>The required <i>format</i> parameter of the date() function specifies how to format the date 
+(or time).</p>
+<p>Here are some characters that are commonly used for dates:</p>
+<ul>
+  <li>d - Represents the day of the month (01 to 31) </li>
+  <li>m - Represents a month (01 to 12)</li>
+  <li>Y - Represents a year (in four digits)</li>
+  <li>l (lowercase 'L') - Represents the day of the week</li>
+</ul>
+<p>Other characters, like&quot;/&quot;, &quot;.&quot;, or &quot;-&quot; can also be inserted between the 
+characters to add additional formatting.</p>
+<p>The example below formats today's date in three different ways:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code htmlHigh notranslate">
+ &lt;?php<br>echo &quot;Today is &quot; . date(&quot;Y/m/d&quot;) . &quot;&lt;br&gt;&quot;;<br>echo &quot;Today is &quot; . date(&quot;Y.m.d&quot;) . &quot;&lt;br&gt;&quot;;<br>echo &quot;Today is &quot; . date(&quot;Y-m-d&quot;) . &quot;&lt;br&gt;&quot;;<br>
+ echo &quot;Today is &quot; . date(&quot;l&quot;);<br>?&gt;</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showphp.asp?filename=demo_date1">Run example &raquo;</a>
+</div>
+<hr>
+<div style="overflow:auto;text-align:center">
+<!-- MidContent -->
+  <div id='div-gpt-ad-1493883843099-0' style="display: inline-block">
+    <script>
+    googletag.cmd.push(function() { googletag.display('div-gpt-ad-1493883843099-0'); });
+    </script>
+  </div>  
+</div>
+<hr>
+<h2>PHP Tip - Automatic Copyright Year</h2>
+<p>Use the date() function to automatically update the copyright year on your 
+website:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code htmlHigh notranslate">
+ &amp;copy; 2010-&lt;?php echo date(&quot;Y&quot;);?&gt;<br></div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showphp.asp?filename=demo_date_copyright">Run example &raquo;</a>
+</div>
+<hr>
+
+<h2>Get a Simple Time</h2>
+<p>Here are some characters that are commonly used for times:</p>
+<ul>
+  <li>h - 12-hour format of an hour with leading zeros (01 to 12) </li>
+  <li>i - Minutes with leading zeros (00 to 59)</li>
+  <li>s - Seconds with leading zeros (00 to 59)</li>
+  <li>a - Lowercase Ante meridiem and Post meridiem (am or pm)</li>
+</ul>
+<p>The example below outputs the current time in the specified format:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code htmlHigh notranslate">
+ &lt;?php<br>echo &quot;The time is &quot; . date(&quot;h:i:sa&quot;);<br>?&gt;</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showphp.asp?filename=demo_date2">Run example &raquo;</a>
+</div>
+
+<div class="w3-panel w3-note"><p>
+<p>Note that the PHP date() function will return the current date/time of the 
+server!</p>
+</div>
+
+<hr>
+
+<h2>Get Your Time Zone</h2>
+<p>If the time you got back from the code is not the right 
+time, it's probably because your server is in another country or set up 
+for a different timezone.</p>
+<p>So, if you need the time to be correct according to a specific 
+location, you can set a timezone to use. </p>
+<p>The example below sets the timezone to &quot;America/New_York&quot;, then outputs the current time in the specified format:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code htmlHigh notranslate">
+ &lt;?php<br>date_default_timezone_set(&quot;America/New_York&quot;);<br>echo &quot;The time is &quot; . date(&quot;h:i:sa&quot;);<br>?&gt;</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showphp.asp?filename=demo_date3">Run example &raquo;</a>
+</div>
+<hr>
+
+<h2>Create a Date With PHP mktime()</h2>
+<p>The optional <i>timestamp</i> parameter in the date() function specifies a timestamp. If you do not 
+specify a timestamp, the current date and time will be used (as shown in the 
+examples above).</p>
+<p>The mktime() function returns the Unix timestamp for a date. The Unix timestamp contains the number of seconds between the Unix Epoch 
+(January 1 1970 00:00:00 GMT) and the time specified.</p>
+<h3>Syntax</h3>
+<div class="w3-code w3-border notranslate"><div>
+mktime(<em>hour,minute,second,month,day,year</em>)
+</div></div>
+
+<p>The example below creates a date and time from a number of parameters in the 
+mktime() function:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code htmlHigh notranslate">
+ &lt;?php<br>$d=mktime(11, 14, 54, 8, 12, 2014);<br>echo &quot;Created date is &quot; . date(&quot;Y-m-d h:i:sa&quot;, $d);<br>?&gt;</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showphp.asp?filename=demo_date4">Run example &raquo;</a>
+</div>
+<hr>
+
+<h2>Create a Date From a String With PHP strtotime()</h2>
+<p>The PHP strtotime() function is used to convert a human readable string to a 
+Unix time.</p>
+<h3>Syntax</h3>
+<div class="w3-code w3-border notranslate"><div>
+ strtotime(<em>time,now</em>)</div></div>
+
+<p>The example below creates a date and time from the strtotime() function:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code htmlHigh notranslate">
+ &lt;?php<br>$d=strtotime(&quot;10:30pm April 15 2014&quot;);<br>echo &quot;Created date is &quot; . date(&quot;Y-m-d h:i:sa&quot;, $d);<br>?&gt;</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showphp.asp?filename=demo_date5">Run example &raquo;</a>
+</div>
+
+<p>PHP is quite clever about converting a string to a date, so you can put in 
+various values:</p>
+<div class="w3-example">
+ <h3>Example</h3>
+<div class="w3-code htmlHigh notranslate">
+ &lt;?php<br>$d=strtotime(&quot;tomorrow&quot;);<br>echo date(&quot;Y-m-d h:i:sa&quot;, $d) . &quot;&lt;br&gt;&quot;;<br>
+ <br>$d=strtotime(&quot;next Saturday&quot;);<br>echo date(&quot;Y-m-d h:i:sa&quot;, $d) . &quot;&lt;br&gt;&quot;;<br>
+ <br>$d=strtotime(&quot;+3 Months&quot;);<br>echo date(&quot;Y-m-d h:i:sa&quot;, $d) . &quot;&lt;br&gt;&quot;;<br>?&gt;</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showphp.asp?filename=demo_date6">Run example &raquo;</a>
+</div>
+<p>However, strtotime() is not perfect, so remember to check the strings you put in there.</p>
+<hr>
+
+<h2>More Date Examples</h2>
+<p>The example below outputs the dates for the next six Saturdays:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code htmlHigh notranslate">
+ &lt;?php<br>$startdate = strtotime(&quot;Saturday&quot;);<br>$enddate = strtotime(&quot;+6 weeks&quot;, $startdate);<br><br>while ($startdate &lt; $enddate) {<br>&nbsp; echo date(&quot;M d&quot;, $startdate) . &quot;&lt;br&gt;&quot;;<br>&nbsp; $startdate = strtotime(&quot;+1 week&quot;, $startdate);<br>}<br>?&gt;</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showphp.asp?filename=demo_date7">Run example &raquo;</a>
+</div>
+<p>The example below outputs the number of days until 4th of July:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code htmlHigh notranslate">
+ &lt;?php<br>$d1=strtotime(&quot;July 04&quot;);<br>$d2=ceil(($d1-time())/60/60/24);<br>
+ echo &quot;There are &quot; . $d2 .&quot; days until 4th of July.&quot;;<br>?&gt;</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showphp.asp?filename=demo_date8">Run example &raquo;</a>
+</div>

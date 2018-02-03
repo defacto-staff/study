@@ -1,0 +1,99 @@
+<p class="intro">A string is a sequence of characters, like &quot;Hello world!&quot;.</p>
+<hr>
+
+<h2>PHP String Functions</h2>
+
+<p>In this chapter we will look at some commonly used functions to manipulate strings.</p>
+<hr>
+
+<h2>Get The Length of a String</h2>
+<p>The PHP strlen() function returns the length of a string.</p>
+<p>The example below returns the length of the string &quot;Hello world!&quot;:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code htmlHigh notranslate">
+&lt;?php<br>
+echo strlen(&quot;Hello world!&quot;); // outputs 12<br>
+?&gt;
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showphp.asp?filename=demo_string_length">Run example &raquo;</a>
+</div>
+
+<p>The output of the code above will be: 12.</p>
+<hr>
+
+<h2>Count The Number of Words in a String</h2>
+<p>The PHP str_word_count() function counts the number of words in a string:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code htmlHigh notranslate">
+&lt;?php<br>
+echo str_word_count(&quot;Hello world!&quot;); // outputs 2<br>
+?&gt;
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showphp.asp?filename=demo_string_word_count">Run example &raquo;</a>
+</div>
+
+<p>The output of the code above will be: 2.</p>
+
+<hr>
+
+<h2>Reverse a String</h2>
+<p>The PHP strrev() function reverses a string:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code htmlHigh notranslate">
+&lt;?php<br>
+echo strrev(&quot;Hello world!&quot;); // outputs !dlrow olleH<br>
+?&gt;
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showphp.asp?filename=demo_string_reverse">Run example &raquo;</a>
+</div>
+
+<p>The output of the code above will be: !dlrow olleH.</p>
+<hr>
+
+<h2>Search For a Specific Text Within a String</h2>
+<p>The PHP strpos() function searches for a specific text within a string.</p>
+<p>If a match is found, the function returns the character position of the first match. If no match is found, it will return FALSE.</p>
+<p>The example below searches for the text &quot;world&quot; in the string &quot;Hello world!&quot;:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code htmlHigh notranslate">
+&lt;?php<br>
+echo strpos(&quot;Hello world!&quot;, &quot;world&quot;); // outputs 6<br>
+?&gt;
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showphp.asp?filename=demo_string_pos">Run example &raquo;</a>
+</div>
+
+<p>The output of the code above will be: 6.</p>
+<p><strong>Tip:</strong>  
+The first character position in a string is 0 (not 1).</p>
+<hr>
+
+<h2>Replace Text Within a String</h2>
+<p>The PHP str_replace() function replaces some characters with some other 
+characters in a string.</p>
+<p>The example below replaces the text &quot;world&quot; with &quot;Dolly&quot;:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code htmlHigh notranslate">
+&lt;?php<br>
+echo str_replace(&quot;world&quot;, &quot;Dolly&quot;, &quot;Hello world!&quot;); // outputs Hello Dolly!<br>
+?&gt;
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showphp.asp?filename=demo_string_replace">Run example &raquo;</a>
+</div>
+
+<p>The output of the code above will be: Hello Dolly!</p>
+<hr>
+
+<h2>Complete PHP String Reference</h2>
+<p>For a complete reference of all string functions, go to our complete <a href="php_ref_string.asp">PHP String Reference</a>.</p>
+<p>The PHP string reference contains description and example of use, for each function!</p>

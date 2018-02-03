@@ -1,0 +1,161 @@
+<p>The include (or require) statement takes all the text/code/markup that exists in the specified file and copies it into
+the file that uses the include statement.</p>
+
+<p>Including files is very useful when you want to include the same PHP,
+HTML, or text on multiple pages of a website.</p>
+
+<hr>
+
+<h2>PHP include and require Statements</h2>
+<p>It is possible to insert the content of one PHP file into another PHP file (before the 
+server executes it), with the include or require statement.</p>
+<p><b>The include and require statements are identical, except upon failure:</b></p>
+<ul>
+  <li>require will produce a fatal error (E_COMPILE_ERROR) and stop the script</li>
+  <li>include will only produce a warning (E_WARNING) and the script will continue</li>
+</ul>
+<p>So, if you want the execution to go on and show users the output, even if the 
+include file is missing, use the include statement. Otherwise, in case of FrameWork, CMS, or a 
+complex PHP application coding, always use the require statement to include a key file to the 
+flow of execution. This will help avoid compromising your application's security 
+and integrity, just in-case one key file is accidentally missing.</p>
+
+<p>Including files saves a lot of work. This means that 
+you can create a standard header, footer, or menu file for all your web pages. 
+Then, when the header needs to be updated, you can only 
+update the header include file.</p>
+<h3>Syntax</h3>
+<div class="w3-code w3-border notranslate"><div>
+include '<i>filename</i>';<br>
+<br>
+or<br>
+<br>
+require '<i>filename</i>';</div></div>
+<hr>
+
+<h2>PHP include Examples</h2>
+<h3>Example 1</h3>
+<p>Assume we have a standard footer file called &quot;footer.php&quot;, that looks like this:</p>
+<div class="w3-code w3-border notranslate"><div>
+ &lt;?php<br>echo &quot;&lt;p&gt;Copyright &amp;copy; 1999-&quot; . date(&quot;Y&quot;) . &quot; W3Schools.com&lt;/p&gt;&quot;;<br>?&gt;</div>
+</div>
+
+<p>To include the footer file in a page, use the include statement:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code htmlHigh notranslate">
+&lt;html&gt;<br>
+&lt;body&gt;<br>
+<br>
+&lt;h1&gt;Welcome to my home page!&lt;/h1&gt;<br>
+&lt;p&gt;Some text.&lt;/p&gt;<br>&lt;p&gt;Some more text.&lt;/p&gt;<br>&lt;?php include 'footer.php';?&gt;<br>
+<br>
+&lt;/body&gt;<br>
+&lt;/html&gt;
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showphp.asp?filename=demo_include1">Run example &raquo;</a>
+</div>
+<hr>
+<div style="overflow:auto;text-align:center">
+<!-- MidContent -->
+  <div id='div-gpt-ad-1493883843099-0' style="display: inline-block">
+    <script>
+    googletag.cmd.push(function() { googletag.display('div-gpt-ad-1493883843099-0'); });
+    </script>
+  </div>  
+</div>
+<hr>
+
+<h3>Example 2</h3>
+<p>Assume we have a standard menu file called &quot;menu.php&quot;:</p>
+<div class="w3-code w3-border notranslate"><div>
+ &lt;?php<br>echo '&lt;a href=&quot;/default.asp&quot;&gt;Home&lt;/a&gt; -<br>&lt;a href=&quot;/html/default.asp&quot;&gt;HTML Tutorial&lt;/a&gt; -<br>&lt;a href=&quot;/css/default.asp&quot;&gt;CSS Tutorial&lt;/a&gt; -<br>&lt;a href=&quot;/js/default.asp&quot;&gt;JavaScript Tutorial&lt;/a&gt; -<br>&lt;a href=&quot;default.asp&quot;&gt;PHP Tutorial&lt;/a&gt;';<br>?&gt;</div></div>
+<p>All pages in the Web site should use this menu file. Here is how it can be done 
+(we are using a &lt;div&gt; element so that the menu easily can be styled with CSS later):</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code htmlHigh notranslate">
+&lt;html&gt;<br>
+&lt;body&gt;<br>
+<br>
+ &lt;div class=&quot;menu&quot;&gt;<br>&lt;?php include 'menu.php';?&gt;<br>&lt;/div&gt;<br><br>
+ &lt;h1&gt;Welcome to my home page!&lt;/h1&gt;<br>&lt;p&gt;Some text.&lt;/p&gt;<br>&lt;p&gt;Some more text.&lt;/p&gt;<br>
+<br>
+&lt;/body&gt;<br>
+&lt;/html&gt;
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showphp.asp?filename=demo_include2">Run example &raquo;</a>
+</div>
+<hr>
+
+<h3>Example 3</h3>
+<p>Assume we have a file called &quot;vars.php&quot;, with some variables defined:</p>
+<div class="w3-code w3-border notranslate"><div>
+&lt;?php<br>
+$color='red';<br>
+$car='BMW';<br>
+?&gt;</div></div>
+<p>Then, if we include the &quot;vars.php&quot; file, the variables can be used in the calling file:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code htmlHigh notranslate">
+&lt;html&gt;<br>
+&lt;body&gt;<br>
+<br>
+&lt;h1&gt;Welcome to my home page!&lt;/h1&gt;<br>
+&lt;?php include 'vars.php';<br>
+echo &quot;I have a $color $car.&quot;;<br>?&gt;<br>
+<br>
+&lt;/body&gt;<br>
+&lt;/html&gt;
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showphp.asp?filename=demo_include3">Run example &raquo;</a>
+</div>
+<hr>
+
+<h2>PHP include vs. require</h2>
+<p>The require statement is also used to include a file into the PHP code.</p>
+<p>However, there is one big difference between include and require; when a 
+file is included with the <strong>include</strong> statement and PHP cannot find it, the script 
+will continue to execute:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code htmlHigh notranslate">
+&lt;html&gt;<br>
+&lt;body&gt;<br>
+<br>
+&lt;h1&gt;Welcome to my home page!&lt;/h1&gt;<br>
+&lt;?php include 'noFileExists.php';<br>
+echo &quot;I have a $color $car.&quot;;<br>?&gt;<br>
+<br>
+&lt;/body&gt;<br>
+&lt;/html&gt;
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showphp.asp?filename=demo_include4">Run example &raquo;</a>
+</div>
+
+<p>If we do the same example using the <strong>require</strong> statement, the 
+echo statement will not be executed because the script execution dies after the 
+require statement returned a fatal error:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code htmlHigh notranslate">
+&lt;html&gt;<br>
+&lt;body&gt;<br>
+<br>
+&lt;h1&gt;Welcome to my home page!&lt;/h1&gt;<br>
+&lt;?php require 'noFileExists.php';<br>
+echo &quot;I have a $color $car.&quot;;<br>?&gt;<br>
+<br>
+&lt;/body&gt;<br>
+&lt;/html&gt;
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showphp.asp?filename=demo_include5">Run example &raquo;</a>
+</div>
+
+<div class="w3-panel w3-note">
+<p>Use <strong>require</strong> when the file is required by the application.</p>
+<p>Use <strong>include</strong> when the file is not required and application 
+should continue when file is not found.</p>
+</div>

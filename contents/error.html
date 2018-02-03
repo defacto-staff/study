@@ -1,0 +1,318 @@
+<p class="intro">The default error handling in PHP is very simple. An error message with filename, line 
+number and a message describing the error is sent to the browser.</p>
+<hr>
+
+<h2>PHP Error Handling</h2>
+<p>When creating scripts and web applications, error handling is an important 
+part. If your code lacks error checking code, your program may look very 
+unprofessional and you may be open to security risks.</p>
+<p>This tutorial contains some of the most common error checking methods in PHP.</p>
+<p>We will show different error handling methods:</p>
+<ul>
+  <li>Simple &quot;die()&quot; statements</li>
+  <li>Custom errors and error triggers</li>
+  <li>Error reporting</li>
+</ul>
+<hr>
+
+<h2>Basic Error Handling: Using the die() function</h2>
+<p>The first example shows a simple script that opens a text file:</p>
+
+<div class="w3-example">
+<div class="w3-code htmlHigh notranslate">
+&lt;?php<br>
+$file=fopen(&quot;welcome.txt&quot;,&quot;r&quot;);<br>
+?&gt;
+</div></div>
+
+<p>If the file does not exist you might get an error like this:</p>
+
+<div class="w3-code w3-border notranslate"><div>
+<b>Warning</b>: fopen(welcome.txt) [function.fopen]: failed to open stream:<br>
+No such file or directory in <b>C:\webfolder\test.php</b> on line <b>2</b>
+</div></div>
+
+<p>To prevent the user from getting an error message like the one above, we test whether 
+the file exist before we try to access it:</p>
+
+<div class="w3-example">
+<div class="w3-code htmlHigh notranslate">
+&lt;?php<br>
+if(!file_exists(&quot;welcome.txt&quot;))&nbsp;{<br>
+&nbsp;&nbsp;die(&quot;File not found&quot;);<br>
+ }
+else {<br>
+&nbsp;&nbsp;$file=fopen(&quot;welcome.txt&quot;,&quot;r&quot;);<br>
+ }<br>
+?&gt;
+</div></div>
+
+<p>Now if the file does not exist you get an error like this:</p>
+
+<div class="w3-code w3-border notranslate"><div>
+File not found
+</div></div>
+
+<p>The code above is more efficient than the earlier code, because it 
+uses a simple error handling mechanism to stop the script after the error.</p>
+<p>However, simply stopping the script is not always the right way to go. Let's take a 
+look at alternative PHP functions for handling errors.</p>
+<hr>
+<div style="overflow:auto;text-align:center">
+<!-- MidContent -->
+  <div id='div-gpt-ad-1493883843099-0' style="display: inline-block">
+    <script>
+    googletag.cmd.push(function() { googletag.display('div-gpt-ad-1493883843099-0'); });
+    </script>
+  </div>  
+</div>
+<hr>
+<h2>Creating a Custom Error Handler</h2>
+<p>Creating a custom error handler is quite simple. We simply create a special 
+function that can be called when an error occurs in PHP.</p>
+<p>This function must be able to handle a minimum of two parameters (error 
+level and error message) but can accept up to five parameters (optionally: file, line-number, and the error context):</p>
+
+<h2>Syntax</h2>
+<div class="w3-code w3-border notranslate"><div>
+error_function(error_level,error_message,<br>
+error_file,error_line,error_context)
+</div></div>
+<table class="w3-table-all notranslate">
+  <tr>
+  <th style="width:20%">Parameter</th>
+  <th style="width:80%">Description</th>
+  </tr>
+  <tr>
+    <td>error_level</td>
+    <td>Required. Specifies the error report level for the  user-defined error. Must be a value number. See table below for possible  error report levels</td>
+  </tr>
+  <tr>
+    <td>error_message</td>
+    <td>Required. Specifies the error message for the user-defined error</td>
+  </tr>
+  <tr>
+    <td>error_file</td>
+    <td>Optional. Specifies the filename in which the error occurred</td>
+  </tr>
+  <tr>
+    <td>error_line</td>
+    <td>Optional. Specifies the line number in which the error occurred</td>
+  </tr>
+  <tr>
+    <td>error_context</td>
+    <td>Optional. Specifies an array containing every variable, and their values, in use when the error occurred</td>
+  </tr>
+</table>
+
+<h2>Error Report levels</h2>
+<p>These error report levels are the different types of error the user-defined error handler can be used for:</p>
+<div class="w3-responsive">
+<table class="w3-table-all notranslate">
+  <tr>
+    <th style="width:5%">Value</th>
+    <th style="width:30%">Constant</th>
+    <th style="width:65%">Description</th>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>E_WARNING</td>
+    <td>Non-fatal run-time errors. Execution of the script is not halted</td>
+  </tr>
+  <tr>
+    <td>8</td>
+    <td>E_NOTICE</td>
+    <td>Run-time notices. The script found something that might be an error, but could also happen when running a script normally</td>
+  </tr>
+  <tr>
+    <td>256</td>
+    <td>E_USER_ERROR</td>
+    <td>Fatal user-generated error. This is like an E_ERROR set by the programmer using the PHP function trigger_error()</td>
+  </tr>
+  <tr>
+    <td>512</td>
+    <td>E_USER_WARNING</td>
+    <td>Non-fatal user-generated warning. This is like an E_WARNING set by the programmer using the PHP function trigger_error()</td>
+  </tr>
+  <tr>
+    <td>1024</td>
+    <td>E_USER_NOTICE</td>
+    <td>User-generated notice. This is like an E_NOTICE set by the programmer using the PHP function trigger_error()</td>
+  </tr>
+  <tr>
+    <td>4096</td>
+    <td>E_RECOVERABLE_ERROR</td>
+    <td>Catchable fatal error. This is like an E_ERROR but can be caught by a user defined handle (see also set_error_handler())</td>
+  </tr>
+  <tr>
+    <td>8191</td>
+    <td>E_ALL</td>
+    <td>All errors and warnings (E_STRICT became a part of E_ALL in PHP 5.4)</td>
+  </tr>
+</table>
+</div>
+
+<p>Now lets create a function to handle errors:</p>
+<div class="w3-example">
+<div class="w3-code htmlHigh notranslate">
+function customError($errno, $errstr) {<br>
+&nbsp;&nbsp;echo &quot;&lt;b&gt;Error:&lt;/b&gt; [$errno] $errstr&lt;br&gt;&quot;;<br>
+&nbsp;&nbsp;echo &quot;Ending Script&quot;;<br>
+&nbsp;&nbsp;die();<br>
+ }
+</div></div>
+
+<p>The code above is a simple error handling function. When it is triggered, it 
+gets the error level and an error message. It then outputs the error level and 
+message and terminates the script.</p>
+<p>Now that we have created an error handling function we need to decide when it 
+should be triggered.</p>
+<hr>
+
+<h2>Set Error Handler</h2>
+<p>The default error handler for PHP is the built in error handler. We are 
+going to make the function above the default error handler for the duration of 
+the script.</p>
+<p>It is possible to change the error handler to apply for only some errors, 
+that way the script can handle different errors in different ways. However, in 
+this example we are going to use our custom error handler for all errors:</p>
+
+<div class="w3-code w3-border notranslate"><div>
+set_error_handler(&quot;customError&quot;);
+</div></div>
+
+<p>Since we want our custom function to handle all errors, the set_error_handler() 
+only needed one parameter, a second parameter could be added to specify an error level.</p>
+
+<h2>Example</h2>
+<p>Testing the error handler by trying to output variable that does not exist:</p>
+<div class="w3-example">
+<div class="w3-code htmlHigh notranslate">
+&lt;?php<br>
+//error handler function<br>
+function customError($errno, $errstr) {<br>
+&nbsp;&nbsp;echo &quot;&lt;b&gt;Error:&lt;/b&gt; [$errno] $errstr&quot;;<br>
+ }<br>
+<br>
+//set error handler<br>
+set_error_handler(&quot;customError&quot;);<br>
+<br>
+//trigger error<br>
+echo($test);<br>
+?&gt;
+</div></div>
+
+<p>The output of the code above should be something like this:</p>
+<div class="w3-code w3-border notranslate"><div>
+<b>Error:</b> [8] Undefined variable: test
+</div></div>
+<hr>
+
+<h2>Trigger an Error</h2>
+<p>In a script where users can input data it is useful to trigger errors when an 
+illegal input occurs. In PHP, this is done by the trigger_error() function.</p>
+
+<h2>Example</h2>
+<p>In this example an error occurs if the &quot;test&quot; variable is bigger than &quot;1&quot;:</p>
+<div class="w3-example">
+<div class="w3-code htmlHigh notranslate">
+&lt;?php<br>
+$test=2;<br>
+if ($test&gt;=1)
+{<br>
+&nbsp;
+trigger_error(&quot;Value must be 1 or below&quot;);<br>
+}<br>
+?&gt;
+</div></div>
+<p>The output of the code above should be something like this:</p>
+<div class="w3-code w3-border notranslate"><div>
+<b>Notice</b>: Value must be 1 or below<br>
+in <b>C:\webfolder\test.php</b> on line <b>6</b>
+</div></div>
+
+<p>An error can be triggered anywhere you wish in a script, and by adding a 
+second parameter, you can specify what error level is triggered.</p>
+<p>Possible error types:</p>
+<ul>
+  <li>E_USER_ERROR - Fatal user-generated run-time error. Errors that can not be recovered from. Execution of the script is halted </li>
+  <li>E_USER_WARNING - Non-fatal user-generated run-time warning. Execution of the script is not halted </li>
+  <li>E_USER_NOTICE - Default. User-generated run-time notice. The script found something that might be an error, but could also happen when running a script normally </li>
+</ul>
+
+<h2>Example</h2>
+<p>In this example an E_USER_WARNING occurs if the &quot;test&quot; variable is bigger 
+than &quot;1&quot;. If an E_USER_WARNING occurs we will use our custom error handler and end the script:</p>
+<div class="w3-example">
+<div class="w3-code htmlHigh notranslate">
+&lt;?php<br>
+//error handler function<br>
+function customError($errno, $errstr)&nbsp;{<br>
+&nbsp;&nbsp;echo &quot;&lt;b&gt;Error:&lt;/b&gt; [$errno] $errstr&lt;br&gt;&quot;;<br>
+&nbsp;&nbsp;echo &quot;Ending Script&quot;;<br>
+&nbsp;&nbsp;die();<br>
+ }<br>
+<br>
+//set error handler<br>
+set_error_handler(&quot;customError&quot;,E_USER_WARNING);<br>
+<br>
+//trigger error<br>
+$test=2;<br>
+if ($test&gt;=1)&nbsp;{<br>
+&nbsp;&nbsp;trigger_error(&quot;Value must be 1 or below&quot;,E_USER_WARNING);<br>
+ }<br>
+?&gt;
+</div></div>
+
+<p>The output of the code above should be something like this:</p>
+<div class="w3-code w3-border notranslate"><div>
+<b>Error:</b> [512] Value must be 1 or below<br>
+Ending Script
+</div></div>
+<p>Now that we have learned to create our own errors and how to trigger them, 
+lets take a look at error logging.</p>
+<hr>
+
+<h2>Error Logging</h2>
+<p>By default, PHP sends an error log to the server's logging system or a file, 
+depending on how the error_log configuration is set in the php.ini file. By 
+using the error_log() function you can send error logs to a specified file or a remote destination.</p>
+<p>Sending error messages to yourself by e-mail can be a good way of getting notified of specific errors.</p>
+
+<h2>Send an Error Message by E-Mail</h2>
+<p>In the example below we will send an e-mail with an error message and end the 
+script, if a specific error occurs:</p>
+<div class="w3-example">
+<div class="w3-code htmlHigh notranslate">
+&lt;?php<br>
+//error handler function<br>
+function customError($errno, $errstr) {<br>
+&nbsp;&nbsp;echo &quot;&lt;b&gt;Error:&lt;/b&gt; [$errno] $errstr&lt;br&gt;&quot;;<br>
+&nbsp;&nbsp;echo &quot;Webmaster has been notified&quot;;<br>
+&nbsp;&nbsp;error_log(&quot;Error: [$errno] $errstr&quot;,1,<br>
+&nbsp;&nbsp;&quot;someone@example.com&quot;,&quot;From: webmaster@example.com&quot;);<br>
+ }<br>
+<br>
+//set error handler<br>
+set_error_handler(&quot;customError&quot;,E_USER_WARNING);<br>
+<br>
+//trigger error<br>
+$test=2;<br>
+if ($test&gt;=1)&nbsp;{<br>
+&nbsp;&nbsp;trigger_error(&quot;Value must be 1 or below&quot;,E_USER_WARNING);<br>
+ }<br>
+?&gt;
+</div></div>
+
+<p>The output of the code above should be something like this:</p>
+<div class="w3-code w3-border notranslate"><div>
+<b>Error:</b> [512] Value must be 1 or below<br>
+Webmaster has been notified
+</div></div>
+
+<p>And the mail received from the code above looks like this:</p>
+<div class="w3-code w3-border notranslate"><div>
+Error: [512] Value must be 1 or below
+</div></div>
+<p>This should not be used with all errors. Regular errors should be logged on 
+the server using the default PHP logging system.</p>

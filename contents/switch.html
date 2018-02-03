@@ -1,0 +1,77 @@
+<p class="intro">The switch statement is used to perform different actions based on different conditions.</p>
+<hr>
+
+<h2>The PHP switch Statement</h2>
+<p>Use the switch statement to <strong>select one of many blocks 
+of code to be executed</strong>.</p>
+<h3>Syntax</h3>
+<div class="w3-code w3-border notranslate"><div>
+
+switch (<i>n</i>)
+{<br>
+&nbsp;&nbsp;&nbsp; case <i>label1:</i><br>
+&nbsp;&nbsp;<i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; code to be executed if n=label1;</i><br>
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; break;<br>
+&nbsp;
+&nbsp;
+case <i>label2:</i><br>
+&nbsp;&nbsp;<i>&nbsp;&nbsp;&nbsp; &nbsp; code to be executed if n=label2;</i><br>
+&nbsp;&nbsp;&nbsp;
+&nbsp;
+&nbsp;&nbsp;break;<br>
+&nbsp;
+&nbsp;
+case <i>label3:</i><br>
+&nbsp;&nbsp;<i>&nbsp;&nbsp;&nbsp; &nbsp; code to be executed if n=label3;</i><br>
+&nbsp;&nbsp;&nbsp;
+&nbsp;
+&nbsp;&nbsp;break;<br>&nbsp; &nbsp; ...<br>
+&nbsp;&nbsp;&nbsp; default:<br>
+&nbsp;&nbsp;<i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; code to be executed if n is different from all labels;</i><br>
+}
+
+</div></div>
+
+<p>This is how it works: First we have a single expression <i>n</i> (most often a
+variable), that is evaluated once. The value of the expression is then compared
+with the values for each case in the structure. If there is a match, the block
+of code associated with that case is executed. Use <b>break</b> to prevent the
+code from running into the next case automatically. The <strong>default</strong> statement is used if no 
+match is found.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code htmlHigh notranslate">
+ &lt;?php<br>
+ $favcolor = &quot;red&quot;;<br><br>
+ switch ($favcolor)
+ {<br>
+ &nbsp;&nbsp;&nbsp; case &quot;red&quot;:<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo &quot;Your favorite color is red!&quot;;<br>
+ &nbsp;&nbsp;&nbsp;
+ &nbsp;
+ &nbsp; break;<br>
+ &nbsp;
+ &nbsp;
+ case &quot;blue&quot;:<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; echo &quot;Your favorite color is blue!&quot;;<br>
+ &nbsp;&nbsp;&nbsp;
+ &nbsp;
+ &nbsp; break;<br>
+ &nbsp;
+ &nbsp;
+ case &quot;green&quot;:<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; echo &quot;Your favorite color is green!&quot;;<br>
+ &nbsp;&nbsp;&nbsp;
+ &nbsp;
+ &nbsp; break;<br>
+ &nbsp;
+ &nbsp;
+ default:<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; echo &quot;Your favorite color is neither red, blue, nor green!&quot;;<br>
+ }<br>
+ ?&gt;
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showphp.asp?filename=demo_switch">Run example &raquo;</a>
+</div>

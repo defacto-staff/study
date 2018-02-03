@@ -1,43 +1,42 @@
-<p>A PHP script is executed on the server, and the plain HTML result is sent back to the browser.</p>
+<p>PHPのスクリプトはサーバー上で実行され、プレーンなHTMLの結果がブラウザに返されます。</p>
 <hr>
 
-<h2>Basic PHP Syntax</h2>
-<p>A PHP script can be placed anywhere in the document.</p>
+<h2>PHPの基本的な書き方</h2>
+<p>PHPのスクリプトは、ドキュメントのどこにでも置くことができます。</p>
 <p>A PHP script starts with <b>&lt;?php</b> and ends with <b>?&gt;</b>:</p>
-<div class="w3-code w3-border notranslate"><div>
-&lt;?php<br>
-// PHP code goes here<br>
-?&gt;
-</div></div>
+
+<pre class="prettyprint"><code class="prettyprint">&lt;?php
+// ここにコードを書く
+?></code></pre>
+
 <p>The default file extension for PHP files is &quot;.php&quot;.</p>
+
 <p>A PHP file normally contains HTML tags, and some PHP scripting code.</p>
+
 <p>Below, we have an example of a simple PHP file, with a PHP script that uses a 
 built-in PHP function &quot;echo&quot; to output the text
 &quot;Hello World!&quot; on a web page:</p>
-<div class="w3-example">
+
 <h3>Example</h3>
-<div class="w3-code htmlHigh notranslate">
- &lt;!DOCTYPE html&gt;<br>
- &lt;html&gt;<br>
-    &lt;body&gt;<br><br>
-    &lt;h1&gt;My first PHP page&lt;/h1&gt;<br><br>
- &lt;?php<br>
- echo &quot;Hello World!&quot;;<br>?&gt;<br><br>
-    &lt;/body&gt;<br>
-    &lt;/html&gt;
+<pre class="prettyprint"><code class="prettyprint">&lt;!DOCTYPE html>
+&lt;html>
+&lt;body>
+
+&lt;h1>My first PHP page&lt;/h1>
+
+&lt;?php
+echo "Hello World!";
+?>
+
+&lt;/body>
+&lt;/html></code></pre>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    <strong>Note:</strong> PHP statements end with a semicolon (;).
+  </div>
 </div>
-<a target="_blank" class="w3-btn w3-margin-bottom" href="showphp.asp?filename=demo_syntax">Run example &raquo;</a>
-</div>
-<p><strong>Note:</strong> PHP statements end with a semicolon (;).</p>
-<hr>
-<div style="overflow:auto;text-align:center">
-<!-- MidContent -->
-  <div id='div-gpt-ad-1493883843099-0' style="display: inline-block">
-    <script>
-    googletag.cmd.push(function() { googletag.display('div-gpt-ad-1493883843099-0'); });
-    </script>
-  </div>  
-</div>
+
 <hr>
 
 <h2>Comments in PHP</h2>
@@ -48,59 +47,75 @@ program. Its only purpose is to be read by someone who is looking at the code.</
   <li>Let others understand what you are doing</li>
   <li>Remind yourself of what you did - Most programmers have experienced coming back to their own work a year or two later and having to re-figure out what they did. Comments can remind you of what you were thinking when you wrote the code</li>
 </ul>
+
 <p>PHP supports several ways of commenting:</p>
-<div class="w3-example">
+
 <h3>Example</h3>
-<div class="w3-code htmlHigh notranslate">
-&lt;!DOCTYPE html&gt;<br>
-&lt;html&gt;<br>
-&lt;body&gt;<br><br>
-&lt;?php<br>
-// This is a single-line comment<br><br>
- # This is also a single-line comment<br><br>
-/*<br>
-This is a multiple-lines comment block<br>that spans over multiple<br>lines<br>
-*/<br><br>// You can also use comments to leave out parts of a code line<br>$x = 5 /* + 15 */ + 5;<br>echo $x;<br>?&gt;<br><br>
-&lt;/body&gt;<br>
-&lt;/html&gt;
-</div>
-<a target="_blank" class="w3-btn w3-margin-bottom" href="showphp.asp?filename=demo_syntax_comments">Run example &raquo;</a>
-</div>
+<pre class="prettyprint"><code class="prettyprint">&lt;!DOCTYPE html>
+&lt;html>
+&lt;body>
+
+&lt;?php
+// This is a single-line comment
+
+# This is also a single-line comment
+
+/*
+This is a multiple-lines comment block
+that spans over multiple
+lines
+*/
+
+// You can also use comments to leave out parts of a code line
+$x = 5 /* + 15 */ + 5;
+echo $x;
+?>
+
+&lt;/body>
+&lt;/html></code></pre>
+
 <hr>
 
-<h2>PHP Case Sensitivity</h2>
+
+
+<h2>大文字と小文字の区別</h2>
 <p>In PHP, all keywords (e.g. if, else, while, echo, etc.), classes, functions, 
 and user-defined functions are NOT case-sensitive.</p>
 <p>In the example below, all three echo statements below are legal (and equal):</p>
 
-<div class="w3-example">
 <h3>Example</h3>
-<div class="w3-code htmlHigh notranslate">
- &lt;!DOCTYPE html&gt;<br>
- &lt;html&gt;<br>
-    &lt;body&gt;<br><br>
-    &lt;?php<br>
- ECHO &quot;Hello World!&lt;br&gt;&quot;;<br>echo &quot;Hello World!&lt;br&gt;&quot;;<br>
- EcHo &quot;Hello World!&lt;br&gt;&quot;;<br>?&gt;<br><br>
-    &lt;/body&gt;<br>
-    &lt;/html&gt;
-</div>
-<a target="_blank" class="w3-btn w3-margin-bottom" href="showphp.asp?filename=demo_syntax_case1">Run example &raquo;</a>
-</div>
+
+<pre class="prettyprint"><code class="prettyprint">&lt;!DOCTYPE html>
+&lt;html>
+&lt;body>
+
+&lt;?php
+ECHO "Hello World!&lt;br>";
+echo "Hello World!&lt;br>";
+EcHo "Hello World!&lt;br>";
+?>
+
+&lt;/body>
+&lt;/html></code></pre>
+
 
 <p>However; all variable names are case-sensitive.</p>
 <p>In the example below, only the first statement will display the value of the 
 $color variable (this is because $color, $COLOR, and $coLOR are treated as three 
 different variables):</p>
 
-<div class="w3-example">
 <h3>Example</h3>
-<div class="w3-code htmlHigh notranslate">
- &lt;!DOCTYPE html&gt;<br>
- &lt;html&gt;<br>
-    &lt;body&gt;<br><br>
-    &lt;?php<br>$color = &quot;red&quot;;<br>
- echo &quot;My car is &quot; . $color . &quot;&lt;br&gt;&quot;;<br>echo &quot;My house is &quot; . $COLOR . &quot;&lt;br&gt;&quot;;<br>echo &quot;My boat is &quot; . $coLOR . &quot;&lt;br&gt;&quot;;<br>?&gt;<br><br>
-    &lt;/body&gt;<br>
-    &lt;/html&gt;
-</div>
+
+<pre class="prettyprint"><code class="prettyprint">&lt;!DOCTYPE html>
+&lt;html>
+&lt;body>
+
+&lt;?php
+$color = "red";
+echo "My car is " . $color . "&lt;br>";
+echo "My house is " . $COLOR . "&lt;br>";
+echo "My boat is " . $coLOR . "&lt;br>";
+?>
+
+&lt;/body>
+&lt;/html></code></pre>

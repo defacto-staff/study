@@ -1,0 +1,85 @@
+<p>PHP while loops execute a block of code while the specified condition is true.</p>
+
+<hr>
+
+<h2>PHP Loops</h2>
+<p>Often when you write code, you want the same block of code to run over and 
+over again in a row. Instead of adding several almost equal code-lines in a script, we 
+can use loops to perform a task like this.</p>
+
+<p>In PHP, we have the following looping statements:</p>
+
+<ul>
+  <li><b>while </b>- loops through a block of code as long as the specified condition is true</li>
+  <li><b>do...while</b> - loops through a block of code once, and then repeats the loop 
+  as long as the specified condition is true</li>
+  <li><b>for </b>- loops through a block of code a specified number of times</li>
+  <li><b>foreach </b>- loops through a block of code for each element in an 
+  array</li>
+</ul>
+
+<hr>
+
+<h2>The PHP while Loop</h2>
+<p>The while loop executes a block of code as long as the specified condition is true.</p>
+
+<h3>Syntax</h3>
+
+<div>
+while (<i>condition is true</i>) {<br>
+<i>&nbsp;&nbsp;&nbsp; code to be executed</i>;<br>
+ }
+</div>
+
+<p>The example below first sets a variable $x to 1 ($x = 1). Then, the while loop will continue to run as long as $x is less than, or equal to 5 
+($x &lt;= 5). $x will increase by 1 each time 
+the loop runs ($x++):</p>
+
+<div class="w3-example">
+
+<h3>Example</h3>
+
+<div class="w3-code htmlHigh notranslate">
+ &lt;?php <br>$x = 1; <br><br>while($x &lt;= 5) {<br>&nbsp;&nbsp;&nbsp; echo &quot;The number is: $x &lt;br&gt;&quot;;<br>&nbsp;&nbsp;&nbsp; $x++;<br>} <br>?&gt; </div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showphp.asp?filename=demo_loop_while">Run example &raquo;</a>
+</div>
+
+
+<hr>
+<h2>The PHP do...while Loop</h2>
+<p>The do...while loop will always execute the block of code once, it 
+will then check the condition, and repeat the loop while the specified condition is true.</p>
+<h3>Syntax</h3>
+<div class="w3-code w3-border notranslate"><div>
+do
+{<br>
+<i>&nbsp; &nbsp; code to be executed;<br>
+</i>}
+while (<i>condition is true</i>);
+</div></div>
+
+<p>The example below first sets a variable $x to 1 ($x = 1). Then, the do while 
+loop will write some output, and then increment the variable $x with 1. Then the condition is checked (is 
+$x less than, or equal to 5?), and the loop will continue to run as long as $x is less than, or equal to 5:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code htmlHigh notranslate">
+ &lt;?php <br>$x = 1; <br><br>do {<br>&nbsp;&nbsp;&nbsp; echo &quot;The number is: $x &lt;br&gt;&quot;;<br>&nbsp;&nbsp;&nbsp; $x++;<br>} while ($x &lt;= 5);<br>?&gt; </div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showphp.asp?filename=demo_loop_do_while">Run example &raquo;</a>
+</div>
+
+<p>Notice that in a do while loop the condition is tested AFTER executing 
+the statements within the loop. This means that the do while loop would execute 
+its statements at least once, even if the condition is false the first time.</p>
+<p>The example below sets the $x variable to 6, then it runs the loop, <strong>
+and then the condition is checked</strong>:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code htmlHigh notranslate">
+ &lt;?php <br>$x = 6;<br> <br>do {<br>&nbsp; &nbsp; echo &quot;The number is: $x &lt;br&gt;&quot;;<br>&nbsp;&nbsp;&nbsp; $x++;<br>} while ($x &lt;= 5);<br>?&gt; </div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showphp.asp?filename=demo_loop_do_while2">Run example &raquo;</a>
+</div>
+
+<p>The for loop and the foreach loop will be explained in the next chapter.</p>

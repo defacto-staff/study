@@ -1,0 +1,338 @@
+<p class="intro">Exceptions are used to change the normal flow of a script if a 
+specified error occurs.</p>
+<hr>
+
+<h2>What is an Exception</h2>
+<p>With PHP 5 came a new object oriented way of dealing with errors.</p>
+<p>Exception handling is used to change the normal flow of the code execution if 
+a specified error (exceptional) condition occurs. This condition is called an 
+exception.<br>
+<br>
+This is what normally happens when an exception is triggered:</p>
+<ul>
+  <li>The current code state is saved</li>
+  <li>The code execution will switch to a predefined (custom) exception handler function</li>
+  <li>Depending on the situation, the handler may then resume the execution from the saved code state, terminate the script execution or continue the script from a different location in the code</li>
+</ul>
+<p>We will show different error handling methods:</p>
+<ul>
+  <li>Basic use of Exceptions</li>
+  <li>Creating a custom exception handler</li>
+  <li>Multiple exceptions</li>
+  <li>Re-throwing an exception</li>
+  <li>Setting a top level exception handler</li>
+</ul>
+<p><b>Note:</b> Exceptions should only be used with error conditions, and should not be used 
+to jump to another place in the code at a specified point.</p>
+<hr>
+
+<h2>Basic Use of Exceptions</h2>
+<p>When an exception is thrown, the code following it will not be executed, and 
+PHP will try to find the matching &quot;catch&quot; block.</p>
+<p>If an exception is not caught, a fatal error will be issued with an &quot;Uncaught 
+Exception&quot; message.</p>
+<p>Lets try to throw an exception without catching it:</p>
+<div class="w3-example">
+<div class="w3-code htmlHigh notranslate">
+&lt;?php<br>
+//create function with an exception<br>
+function checkNum($number) {<br>
+&nbsp;&nbsp;if($number&gt;1)&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;throw new Exception(&quot;Value must be 1 or below&quot;);<br>
+ &nbsp;&nbsp;}<br>
+&nbsp;&nbsp;return true;<br>
+ }<br>
+<br>
+//trigger exception<br>
+checkNum(2);<br>
+?&gt;
+
+</div></div>
+<p>The code above will get an error like this:</p>
+<div class="w3-code w3-border notranslate"><div>
+
+<b>Fatal error</b>: Uncaught exception 'Exception'<br>
+with message 'Value must be 1 or below' in C:\webfolder\test.php:6<br>
+Stack trace: #0 C:\webfolder\test.php(12):<br>
+checkNum(28) #1 {main} thrown in <b>C:\webfolder\test.php</b> on line <b>6</b>
+
+</div></div>
+<h2>Try, throw and catch</h2>
+<p>To avoid the error from the example above, we need to create the proper code 
+to handle an exception. </p>
+<p>Proper exception code should include:</p>
+<ol>
+  <li>Try - A function using an exception should be in a &quot;try&quot; block. If the exception does not trigger, the code will continue as normal. However if the exception triggers, an exception is &quot;thrown&quot;</li>
+  <li>Throw - This is how you trigger an exception. Each &quot;throw&quot; must have at least one &quot;catch&quot;</li>
+  <li>Catch - A &quot;catch&quot; block retrieves an exception and creates an object containing the exception information</li>
+</ol>
+<p>Lets try to trigger an exception with valid code:</p>
+<div class="w3-example">
+<div class="w3-code htmlHigh notranslate">
+&lt;?php<br>
+//create function with an exception<br>
+function checkNum($number)&nbsp;{<br>
+&nbsp;&nbsp;if($number&gt;1)&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;throw new Exception(&quot;Value must be 1 or below&quot;);<br>
+ &nbsp;&nbsp;}<br>
+&nbsp;&nbsp;return true;<br>
+ }<br>
+<br>
+//trigger exception in a &quot;try&quot; block<br>
+try&nbsp;{<br>
+&nbsp;&nbsp;checkNum(2);<br>
+&nbsp;&nbsp;//If the exception is thrown, this text will not be shown<br>
+&nbsp;&nbsp;echo 'If you see this, the number is 1 or below';<br>
+ }<br>
+<br>
+//catch exception<br>
+catch(Exception $e)&nbsp;{<br>
+&nbsp;&nbsp;echo 'Message: ' .$e-&gt;getMessage();<br>
+ }<br>
+?&gt;
+
+</div></div>
+<p>The code above will get an error like this:</p>
+<div class="w3-code w3-border notranslate"><div>
+
+Message: Value must be 1 or below
+
+</div></div>
+<h2>Example explained:</h2>
+<p>The code above throws an exception and catches it:</p>
+<ol>
+  <li>The checkNum() function is created. It checks if a number is greater than 1. If it is, an exception is thrown</li>
+  <li>The checkNum() function is called in a &quot;try&quot; block</li>
+  <li>The exception within the checkNum() function is thrown</li>
+  <li>The &quot;catch&quot; block retrieves the exception and creates an object ($e) containing the exception information</li>
+  <li>The error message from the exception is echoed by calling $e-&gt;getMessage() from the exception object</li>
+</ol>
+<p>However, one way to get around the &quot;every throw must have a catch&quot; rule is to 
+set a top level exception handler to handle errors that slip through.</p>
+<hr>
+<div style="overflow:auto;text-align:center">
+<!-- MidContent -->
+  <div id='div-gpt-ad-1493883843099-0' style="display: inline-block">
+    <script>
+    googletag.cmd.push(function() { googletag.display('div-gpt-ad-1493883843099-0'); });
+    </script>
+  </div>  
+</div>
+<hr>
+
+<h2>Creating a Custom Exception Class</h2>
+<p>To create a custom exception handler you must create a special 
+class with functions that can be called when an exception occurs in PHP. The 
+class must be an extension of the exception class.</p>
+<p>The custom exception class inherits the properties from PHP's 
+exception class and you can add custom functions to it.</p>
+<p>Lets create an exception class:</p>
+
+<div class="w3-example">
+<div class="w3-code htmlHigh notranslate">
+&lt;?php<br>
+class customException extends Exception&nbsp;{<br>
+&nbsp;&nbsp;public function errorMessage() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;//error message<br>
+&nbsp;&nbsp;&nbsp;&nbsp;$errorMsg = 'Error on line '.$this-&gt;getLine().' in '.$this-&gt;getFile()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;.': &lt;b&gt;'.$this-&gt;getMessage().'&lt;/b&gt; is not a valid E-Mail address';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return $errorMsg;<br>
+ &nbsp;&nbsp;}<br>
+ }<br>
+<br>
+$email = &quot;someone@example...com&quot;;<br>
+<br>
+try&nbsp;{<br>
+&nbsp;&nbsp;//check if<br>
+&nbsp;&nbsp;if(filter_var($email, FILTER_VALIDATE_EMAIL) === FALSE) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;//throw exception if email is not valid<br>
+&nbsp;&nbsp;&nbsp;&nbsp;throw new customException($email);<br>
+ &nbsp;&nbsp;}<br>
+ }<br>
+<br>
+catch (customException $e)&nbsp;{<br>
+&nbsp;&nbsp;//display custom message<br>
+&nbsp;&nbsp;echo $e-&gt;errorMessage();<br>
+ }<br>
+?&gt;
+
+</div></div>
+
+<p>The new class is a copy of the old exception class with an addition of the 
+errorMessage() function. Since it is a copy of the old class, and it inherits 
+the properties and methods from the old class, we can use the exception class 
+methods like getLine() and getFile() and getMessage().</p>
+<h2>Example explained:</h2>
+<p>The code above throws an exception and catches it with a custom exception 
+class:</p>
+<ol>
+  <li>The customException() class is created as an extension of the old exception class. This way it inherits all methods and properties from the old exception class</li>
+  <li>The errorMessage() function is created. This function returns an error message if an e-mail address is invalid</li>
+  <li>The $email variable is set to a string that is not a valid e-mail address</li>
+  <li>The &quot;try&quot; block is executed and an exception is thrown since the e-mail address is invalid</li>
+  <li>The &quot;catch&quot; block catches the exception and displays the error message</li>
+</ol>
+<hr>
+
+<h2>Multiple Exceptions</h2>
+<p>It is possible for a script to use multiple exceptions to check for multiple 
+conditions.</p>
+<p>It is possible to use several if..else blocks, a switch, or nest multiple 
+exceptions. These exceptions can use different exception classes and return 
+different error messages:</p>
+
+<div class="w3-example">
+<div class="w3-code htmlHigh notranslate">
+&lt;?php<br>
+class customException extends Exception
+{<br>
+&nbsp;
+public function errorMessage()
+{<br>
+&nbsp;&nbsp;&nbsp;
+//error message<br>
+&nbsp;&nbsp;&nbsp;
+$errorMsg = 'Error on line '.$this-&gt;getLine().' in '.$this-&gt;getFile()<br>
+&nbsp;&nbsp;&nbsp;
+.': &lt;b&gt;'.$this-&gt;getMessage().'&lt;/b&gt; is not a valid E-Mail address';<br>
+&nbsp;&nbsp;&nbsp;
+return $errorMsg;<br>
+&nbsp;
+}<br>
+}<br>
+<br>
+$email = &quot;someone@example.com&quot;;<br>
+<br>
+try&nbsp;{<br>
+&nbsp;&nbsp;//check if<br>
+&nbsp;&nbsp;if(filter_var($email, FILTER_VALIDATE_EMAIL) === FALSE)&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;//throw exception if email is not valid<br>
+&nbsp;&nbsp;&nbsp;&nbsp;throw new customException($email);<br>
+ &nbsp;&nbsp;}<br>
+&nbsp;&nbsp;//check for &quot;example&quot; in mail address<br>
+&nbsp;&nbsp;if(strpos($email, &quot;example&quot;) !== FALSE)&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;throw new Exception(&quot;$email is an example e-mail&quot;);<br>
+ &nbsp;&nbsp;}<br>
+ }<br>
+<br>
+catch (customException $e)&nbsp;{<br>
+&nbsp;&nbsp;echo $e-&gt;errorMessage();<br>
+ }<br>
+<br>
+catch(Exception $e)&nbsp;{<br>
+&nbsp;&nbsp;echo $e-&gt;getMessage();<br>
+ }<br>
+?&gt;
+</div></div>
+
+<h2>Example explained:</h2>
+<p>The code above tests two conditions and throws an exception if any of the 
+conditions are not met:</p>
+<ol>
+  <li>The customException() class is created as an extension of the old exception class. This way it inherits all methods and properties from the old exception class</li>
+  <li>The errorMessage() function is created. This function returns an error message if an e-mail address is invalid</li>
+  <li>The $email variable is set to a string that is a valid e-mail address, but contains the string &quot;example&quot;</li>
+  <li>The &quot;try&quot; block is executed and an exception is not thrown on the first condition</li>
+  <li>The second condition triggers an exception since the e-mail contains the string &quot;example&quot;</li>
+  <li>The &quot;catch&quot; block catches the exception and displays the correct error message</li>
+</ol>
+<p>If the exception thrown were of the class customException and there were no 
+customException catch, only the base exception catch, the 
+exception would be handled there.</p>
+<hr>
+
+<h2>Re-throwing Exceptions</h2>
+<p>Sometimes, when an exception is thrown, you may wish to handle it 
+differently than the standard way. It is possible to throw an exception a second 
+time within a &quot;catch&quot; block.</p>
+<p>A script should hide system errors from users. System errors may be important 
+for the coder, but are of no interest to the user. To make things easier for the 
+user you can re-throw the exception with a user friendly message:</p>
+
+<div class="w3-example">
+<div class="w3-code htmlHigh notranslate">
+&lt;?php<br>
+class customException extends Exception&nbsp;{<br>
+&nbsp;&nbsp;public function errorMessage() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;//error message<br>
+&nbsp;&nbsp;&nbsp;&nbsp;$errorMsg = $this-&gt;getMessage().' is not a valid E-Mail address.';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return $errorMsg;<br>
+ &nbsp;&nbsp;}<br>
+ }<br>
+<br>
+$email = &quot;someone@example.com&quot;;<br>
+<br>
+try&nbsp;{<br>
+&nbsp;&nbsp;try {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;//check for &quot;example&quot; in mail address<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if(strpos($email, &quot;example&quot;) !== FALSE)&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//throw exception if email is not valid<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw new Exception($email);<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+ &nbsp;&nbsp;}<br>
+&nbsp;&nbsp;catch(Exception $e)&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;//re-throw exception<br>
+&nbsp;&nbsp;&nbsp;&nbsp;throw new customException($email);<br>
+ &nbsp;&nbsp;}<br>
+ }<br>
+<br>
+catch (customException $e)&nbsp;{<br>
+&nbsp;&nbsp;//display custom message<br>
+&nbsp;&nbsp;echo $e-&gt;errorMessage();<br>
+ }<br>
+?&gt;
+</div></div>
+
+<h2>Example explained:</h2>
+<p>The code above tests if the email-address contains the string &quot;example&quot; in 
+it, if it does, the exception is re-thrown:</p>
+<ol>
+  <li>The customException() class is created as an extension of the old exception class. This way it inherits all methods and properties from the old exception class</li>
+  <li>The errorMessage() function is created. This function returns an error message if an e-mail address is invalid</li>
+  <li>The $email variable is set to a string that is a valid e-mail address, but contains the string &quot;example&quot;</li>
+  <li>The &quot;try&quot; block contains another &quot;try&quot; block to make it possible to re-throw the exception</li>
+  <li>The exception is triggered since the e-mail contains the string &quot;example&quot;</li>
+  <li>The &quot;catch&quot; block catches the exception and re-throws a &quot;customException&quot;</li>
+  <li>The &quot;customException&quot; is caught and displays an error message</li>
+</ol>
+<p>If the exception is not caught in its current "try" block, it will search for a catch block on &quot;higher levels&quot;.</p>
+<hr>
+
+<h2>Set a Top Level Exception Handler</h2>
+<p>The set_exception_handler() function sets a user-defined function to handle all 
+uncaught exceptions:</p>
+<div class="w3-example">
+<div class="w3-code htmlHigh notranslate">
+&lt;?php<br>
+function myException($exception)
+{<br>
+&nbsp;
+echo &quot;&lt;b&gt;Exception:&lt;/b&gt; &quot; . $exception-&gt;getMessage();<br>
+}<br>
+<br>
+set_exception_handler('myException');<br>
+<br>
+throw new Exception('Uncaught Exception occurred');<br>
+?&gt;
+
+</div></div>
+<p>The output of the code above should be something like this:</p>
+<div class="w3-code w3-border notranslate"><div>
+
+<b>Exception:</b> Uncaught Exception occurred
+
+</div></div>
+<p>In the code above there was no &quot;catch&quot; block. Instead, the top level 
+exception handler triggered. This function should be used to catch uncaught 
+exceptions.<br>
+</p>
+<hr>
+
+<h2>Rules for exceptions</h2>
+<ul>
+  <li>Code may be surrounded in a try block, to help catch potential exceptions</li>
+  <li>Each try block or &quot;throw&quot; must have at least one corresponding catch block</li>
+  <li>Multiple catch blocks can be used to catch different classes of exceptions</li>
+  <li>Exceptions can be thrown (or re-thrown) in a catch block within a try block</li>
+</ul>
+<p>A simple rule: If you throw something, you have to catch it.</p>

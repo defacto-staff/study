@@ -1,0 +1,85 @@
+<p class="intro">Earlier in this tutorial, we have described arrays that are a single list of key/value pairs.</p>
+<p class="intro">However, sometimes you want to store values with more than one key.</p>
+<p class="intro">This can be stored in multidimensional arrays.</p>
+<hr>
+<h2>PHP - Multidimensional Arrays</h2>
+<p>A multidimensional array is an array containing one or more arrays.</p>
+<p>PHP understands multidimensional arrays that are two, three, four, five, or more levels deep. However, arrays more than three levels deep are hard to manage for most people.</p>
+<div class="panel panel-default">
+<div class="panel-body">
+<p>
+  <strong>The dimension of an array indicates the number of indices you need to select an element.</strong>
+</p>
+<ul>
+  <li>For a two-dimensional array you need two indices to select an element</li>
+  <li>For a three-dimensional array you need three indices to select an element</li>
+</ul>
+</div>
+</div>
+<hr>
+<h2>2次元配列</h2>
+<p>A two-dimensional array is an array of arrays (a three-dimensional array is an array of arrays of arrays).</p>
+<p>First, take a look at the following table:</p>
+<table class="table table-striped table-hover ">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Stock</th>
+      <th>Sold</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Volvo</td>
+      <td>22</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td>BMW</td>
+      <td>15</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td>Saab</td>
+      <td>5</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Land Rover</td>
+      <td>17</td>
+      <td>15</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>We can store the data from the table above in a two-dimensional array, like this:</p>
+
+<pre class="prettyprint"><code class="prettyprint">$cars = array(
+    array('Volvo', 22, 18)
+    , array('BMW', 15, 13)
+    , array('Saab', 5, 2)
+    , array('Land Rover', 17, 15)
+);</code></pre>
+
+<h3>Example</h3>
+<pre class="prettyprint"><code class="prettyprint">&lt;?php
+echo $cars[0][0].": In stock: ".$cars[0][1].", sold: ".$cars[0][2].".&lt;br>";
+echo $cars[1][0].": In stock: ".$cars[1][1].", sold: ".$cars[1][2].".&lt;br>";
+echo $cars[2][0].": In stock: ".$cars[2][1].", sold: ".$cars[2][2].".&lt;br>";
+echo $cars[3][0].": In stock: ".$cars[3][1].", sold: ".$cars[3][2].".&lt;br>";
+?></code></pre>
+
+<p>We can also put a For loop inside another For loop to get the elements of the $cars array (we still have to point to the two indices):</p>
+
+<h3>Example</h3>
+
+<pre class="prettyprint"><code class="prettyprint">&lt;?php
+for ($row = 0; $row < 4; $row++) {
+    echo "&lt;p>&lt;b>Row number $row&lt;/b>&lt;/p>";
+    echo "&lt;ul>";
+    for ($col = 0; $col < 3; $col++) {
+        echo "&lt;li>".$cars[$row][$col]."&lt;/li>";
+    }
+    echo "&lt;/ul>";
+}
+?></code></pre>
