@@ -1,0 +1,64 @@
+<p>変数とは、データを記憶する「入れ物」のようなものです。</p>
+<hr>
+
+<h2>変数をつくる（宣言する）</h2>
+<p>変数は「$」の記号から始まり、後ろに変数の名前が続きます。</p>
+
+<pre class="prettyprint"><code class="prettyprint">&lt;?php
+$txt = "Hello world!";
+$x = 5;
+$y = 10.5;
+?></code></pre>
+
+<p>このコードを実行すると、変数 $txt は「Hello world!」という値を保持し、変数 $x は数値の 5 の値を保持し、変数 $yは 10.5 の値を保持します。</p>
+
+<p>Note: When you assign a text value to a variable, put quotes around the value.</p>
+
+<p>Note: Unlike other programming languages, PHP has no command for declaring a variable. It is created the moment you first assign a value to it.</p>
+
+<p>Think of variables as containers for storing data.</p>
+
+<hr>
+
+<h2>PHP Variables</h2>
+
+<p>A variable can have a short name (like x and y) or a more descriptive name (age, carname, total_volume).</p>
+<p>Rules for PHP variables:</p>
+<ul>
+  <li>A variable starts with the $ sign, followed by the name of the variable</li>
+  <li>A variable name must start with a letter or the underscore character</li>
+  <li>A variable name cannot start with a number</li>
+  <li>A variable name can only contain alpha-numeric characters and underscores (A-z, 0-9, and _ )</li>
+  <li>Variable names are case-sensitive ($age and $AGE are two different variables)</li>
+</ul>
+
+<p>Remember that PHP variable names are case-sensitive!</p>
+
+<hr>
+<h2>変数を出力する</h2>
+
+<p>The PHP echo statement is often used to output data to the screen.</p>
+
+<p>The following example will show how to output text and a variable:</p>
+
+<pre class="prettyprint"><code class="prettyprint">&lt;?php
+$txt = "W3Schools.com";
+echo "I love $txt!";
+?></code></pre>
+
+<p>The following example will produce the same output as the example above:</p>
+
+<pre class="prettyprint"><code class="prettyprint">&lt;?php
+$txt = "W3Schools.com";
+echo "I love " . $txt . "!";
+?></code></pre>
+
+<p>The following example will output the sum of two variables:</p>
+
+<pre class="prettyprint"><code class="prettyprint">&lt;?php
+$x = 5;
+$y = 4;
+echo $x + $y;
+?></code></pre>
+
+<p>Note: You will learn more about the echo statement and how to output data to the screen in the next chapter.</p>

@@ -1,0 +1,42 @@
+<p class="intro">In PHP there are two basic ways to get output: echo and print.</p>
+<p class="intro">In this tutorial we use echo (and print) in almost every 
+example. So, this chapter contains a little more info about those two output 
+statements.</p>
+<hr>
+
+<h2>PHP echo and print Statements</h2>
+<p>echo and print are more or less the same. They are both used to output data 
+to the screen. </p>
+<p>The differences are small: echo has no return value while print has a return value of 1 so it can be used in 
+expressions. echo can take multiple parameters (although such usage is rare) 
+while print can take one argument. echo is marginally 
+faster than print.</p>
+<hr>
+
+<h2>The PHP echo Statement</h2>
+<p>The echo statement can be used with or without parentheses: 
+echo or echo().</p>
+<p><strong>Display Text</strong></p>
+<p>The following example shows how to output text with the echo 
+command (notice that the text can contain HTML markup):</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code htmlHigh notranslate">
+&lt;?php<br>
+ echo &quot;&lt;h2&gt;PHP is Fun!&lt;/h2&gt;&quot;;<br>
+ echo &quot;Hello world!&lt;br&gt;&quot;;<br>echo &quot;I'm about to learn PHP!&lt;br&gt;&quot;;<br>
+ echo &quot;This &quot;, &quot;string &quot;, &quot;was &quot;, &quot;made &quot;, &quot;with multiple parameters.&quot;;<br>
+?&gt;
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showphp.asp?filename=demo_echo1">Run example &raquo;</a>
+</div>
+<p><strong>Display Variables</strong></p>
+<p>The following example shows how to output text and variables with the echo 
+statement:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code htmlHigh notranslate">
+ &lt;?php<br>$txt1 = &quot;Learn PHP&quot;;<br>$txt2 = &quot;W3Schools.com&quot;;<br>
+ $x = 5;<br>$y = 4;<br>
+ <br>echo &quot;&lt;h2&gt;&quot; . $txt1 . &quot;&lt;/h2&gt;&quot;;<br>echo &quot;Study PHP at 
+  &quot; . $txt2 . &quot;&lt;br&gt;&quot;;<br>echo $x + $y;<br>?&gt; </div>

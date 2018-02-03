@@ -1,0 +1,5 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+    :
+    ここにリダイレクト処理を記述
+</IfModule>
